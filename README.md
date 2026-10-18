@@ -9,6 +9,7 @@ Live: https://nishandidi.github.io · Inhalte bearbeiten: https://nishandidi.git
 |---|---|
 | `index.html` | Die Seite (statisch, enthält alle Inhalte als Fallback) |
 | `didi-marketing/` | Eigenständige Landingpage im neuen Design (ohne CMS), live unter /didi-marketing/ |
+| `vorlagen/` | Übersicht der Website-Entwürfe für Leads (noindex), je Kunde ein Unterordner, z. B. `vorlagen/at-brandschutz/` |
 | `cms.js` | Lädt die veröffentlichte „Startseite“ aus Sanity (Projekt `emuhnqj1`, Dataset `production`) und ersetzt die Texte |
 | `admin/` | Gebautes Sanity Studio (wird von GitHub Pages ausgeliefert) |
 | `404.html` | Lässt Unterseiten des Studios (z. B. `/admin/structure/...`) direkt aufrufbar sein |

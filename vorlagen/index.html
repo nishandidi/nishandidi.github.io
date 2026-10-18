@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Entwürfe | didi marketing</title>
+<meta name="description" content="Website-Entwürfe von didi marketing für potenzielle Kunden.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0B0C08">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230B0C08'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23B8E62A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0C08;--card:#15170F;--line:rgba(255,255,255,.09);--text:#F2F3EC;--muted:rgba(242,243,236,.62);--lime:#B8E62A}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font:400 17px/1.6 Inter,system-ui,sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(50% 40% at 15% 0%,rgba(88,96,50,.45),transparent 70%);pointer-events:none}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+.wrap{position:relative;max-width:1180px;margin:0 auto;padding:0 24px}
+header{padding:28px 0;display:flex;justify-content:space-between;align-items:center}
+.brand{display:flex;align-items:center;gap:10px;font:800 21px "Bricolage Grotesque"}
+.brand i{width:9px;height:9px;border-radius:50%;background:var(--lime)}
+header a.back{font-size:14px;color:var(--muted)}header a.back:hover{color:var(--text)}
+h1{font:800 clamp(40px,6vw,72px)/1.05 "Bricolage Grotesque";letter-spacing:-.02em;margin:70px 0 16px}
+.lead{color:var(--muted);font-size:19px;max-width:620px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;margin:56px 0 100px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,border-color .3s}
+.card:hover{transform:translateY(-6px);border-color:rgba(184,230,42,.4)}
+.thumb{aspect-ratio:16/10;overflow:hidden;position:relative;background:#E4E6E3}
+.thumb iframe{width:1440px;height:900px;border:0;transform:scale(.26);transform-origin:0 0;pointer-events:none}
+.card .body{padding:22px 24px 24px;display:flex;flex-direction:column;gap:6px;flex:1}
+.meta{font-size:13px;color:var(--lime);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.card h2{font:700 24px "Bricolage Grotesque"}
+.card p{color:var(--muted);font-size:15px;flex:1}
+.open{margin-top:14px;font-weight:600;color:var(--lime)}
+.soon{border-style:dashed;align-items:center;justify-content:center;text-align:center;padding:40px;color:var(--muted);min-height:280px}
+.soon b{display:block;color:var(--text);font:700 22px "Bricolage Grotesque";margin-bottom:6px}
+.soon a{color:var(--lime);font-weight:600;margin-top:14px;display:inline-block}
+@media(max-width:560px){.wrap{padding:0 16px}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a href="../didi-marketing/" class="brand"><i></i>didi marketing</a>
+    <a href="../didi-marketing/" class="back">← Zur Hauptseite</a>
+  </header>
+
+  <h1>Website-Entwürfe</h1>
+  <p class="lead">So könnte deine neue Website aussehen. Jeder Entwurf ist mit echten Inhalten für den jeweiligen Betrieb gebaut, nicht mit Platzhaltern.</p>
+
+  <div class="grid">
+    <a class="card" href="at-brandschutz/">
+      <div class="thumb"><iframe src="at-brandschutz/" title="Vorschau AT Brandschutz" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+      <div class="body">
+        <span class="meta">Brandschutz · Fällanden ZH</span>
+        <h2>AT Brandschutz GmbH</h2>
+        <p>Baulicher Brandschutz für Bauherren, Architekten und Verwaltungen. Technischer Bauplan-Look mit animierter Schnittzeichnung.</p>
+        <span class="open">Entwurf ansehen →</span>
+      </div>
+    </a>
+    <div class="card soon">
+      <div><b>Dein Betrieb hier?</b>Ich baue dir einen Entwurf mit deinen echten Inhalten.<br><a href="https://wa.me/41795226224?text=Hallo%20Nishan%2C%20ich%20h%C3%A4tte%20gern%20einen%20Website-Entwurf%3A%20" target="_blank" rel="noopener">Per WhatsApp anfragen →</a></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
