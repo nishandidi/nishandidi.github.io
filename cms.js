@@ -151,6 +151,8 @@
 
   function build(doc) {
     if (!doc || !doc.sections || !doc.sections.length) return;
+    // An unfilled page in the Studio must never blank the live site.
+    if (!doc.sections.some(function (b) { return b && has(b.title); })) return;
     var main = document.querySelector('main');
     var originals = {};
     all(main, '[data-block]').forEach(function (n) { originals[n.getAttribute('data-block')] = n; });

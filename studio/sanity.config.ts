@@ -2,6 +2,7 @@ import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
+import {LoadContentAction} from './loadContentAction'
 
 const SINGLETON = 'landingPage'
 
@@ -35,9 +36,11 @@ export default defineConfig({
   },
 
   document: {
-    actions: (actions, {schemaType}) =>
-      schemaType === SINGLETON
-        ? actions.filter(({action}) => action && ['publish', 'discardChanges', 'restore', 'delete'].includes(action))
-        : actions,
+    actions: (actions, context) => {
+      if (context.schemaType !== SINGLETON) return actions
+      const allowed = actions.filter(({action}) => action && ['publish', 'discardChanges', 'restore', 'delete'].includes(action))
+      // "Website-Inhalt laden" only shows (as the main button) while the page is still empty.
+      return [LoadContentAction, ...allowed]
+    },
   },
 })
