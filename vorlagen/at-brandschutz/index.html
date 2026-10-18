@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AT Brandschutz | Baulicher Brandschutz Region Zürich</title>
+<meta name="description" content="Baulicher Brandschutz in der Region Zürich: Beratung, Planung und fachgerechte Umsetzung. Normgerecht, termintreu und lückenlos dokumentiert.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#17191C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23E3361B'/%3E%3Cpath d='M16 6c1 4 6 6 6 12a6 6 0 01-12 0c0-3 2-5 3-6 0 2 1 3 2 3 0-4 0-6 1-9z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --beton:#E4E6E3;      /* concrete, page ground */
+  --kreide:#F6F6F4;     /* chalk, cards */
+  --graphit:#17191C;    /* graphite, text + dark sections */
+  --graphit-2:#24272B;
+  --signal:#E3361B;     /* signal red from the AT logo */
+  --glut:#FF7A3D;       /* ember */
+  --flucht:#0E8A4F;     /* escape-route green, used only for "checked" */
+  --muted:#5B6066;
+  --rule:rgba(23,25,28,.14);
+  --max:1260px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{background:var(--beton);color:var(--graphit);font:400 17px/1.65 "Public Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--signal);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.display{font-family:Archivo,sans-serif;font-stretch:118%;font-weight:800;letter-spacing:-.025em;line-height:1.02}
+h2.display{font-size:clamp(34px,4.6vw,58px)}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase}
+.tag{display:inline-flex;align-items:center;gap:10px;color:var(--signal);margin-bottom:18px}
+.tag::before{content:"";width:10px;height:10px;background:var(--signal);clip-path:polygon(0 0,100% 50%,0 100%)}
+.lead{font-size:19px;color:var(--muted);max-width:620px;margin-top:18px}
+.grid-bg{background-image:linear-gradient(var(--rule) 1px,transparent 1px),linear-gradient(90deg,var(--rule) 1px,transparent 1px);background-size:48px 48px;background-position:-1px -1px}
+section{padding:120px 0}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 16px "Public Sans";padding:15px 24px;border-radius:6px;border:1.5px solid transparent;cursor:pointer;transition:background .2s,color .2s,transform .2s,border-color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-red{background:var(--signal);color:#fff}
+.btn-red:hover{background:#C92A12}
+.btn-line{border-color:var(--graphit);color:var(--graphit)}
+.btn-line:hover{background:var(--graphit);color:#fff}
+.on-dark .btn-line{border-color:rgba(255,255,255,.5);color:#fff}
+.on-dark .btn-line:hover{background:#fff;color:var(--graphit)}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* top bar + nav */
+.topbar{background:var(--graphit);color:rgba(255,255,255,.75);font-size:14px}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:40px;flex-wrap:wrap}
+.topbar b{color:#fff;font-weight:600}
+.topbar .c{display:flex;gap:22px}
+.topbar a:hover{color:#fff}
+nav{position:sticky;top:0;z-index:50;background:rgba(228,230,227,.88);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+nav.stuck{border-bottom-color:var(--rule);box-shadow:0 6px 24px rgba(23,25,28,.06)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:78px;transition:height .3s}
+nav.stuck .nav-in{height:64px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo img{height:40px;width:auto}
+.logo span{font-family:Archivo;font-stretch:118%;font-weight:800;font-size:20px;letter-spacing:-.02em}
+.menu{display:flex;align-items:center;gap:28px;font-size:15px;font-weight:500}
+.menu a:not(.btn){position:relative}
+.menu a:not(.btn)::after{content:"";position:absolute;left:0;right:100%;bottom:-6px;height:2px;background:var(--signal);transition:right .25s}
+.menu a:not(.btn):hover::after{right:0}
+.menu .btn{padding:10px 18px;font-size:15px}
+.burger{display:none;background:none;border:0;font-size:28px;cursor:pointer;color:var(--graphit)}
+
+/* hero */
+.hero{padding:80px 0 0;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.who{display:flex;align-items:center;gap:14px;font-size:14px;color:var(--muted);margin-bottom:26px}
+.faces{display:flex}
+.faces img{width:36px;height:36px;border-radius:50%;border:2px solid var(--beton);object-fit:cover;margin-left:-10px;background:#cfd2ce}
+.faces img:first-child{margin-left:0}
+.hero h1{font-size:clamp(40px,5.6vw,74px)}
+.hero h1 em{font-style:normal;color:var(--signal)}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.drawing{position:relative;background:var(--kreide);border:1px solid var(--rule);border-radius:10px;padding:18px 18px 12px}
+.drawing svg{width:100%;height:auto;display:block}
+.drawing figcaption{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--rule);margin-top:10px;padding-top:10px;color:var(--muted)}
+.heat{animation:heat 3.2s ease-in-out infinite alternate}
+@keyframes heat{from{opacity:.55}to{opacity:1}}
+.front{animation:front 4.5s cubic-bezier(.3,.1,.2,1) infinite}
+@keyframes front{0%{transform:scaleX(0)}55%,85%{transform:scaleX(1)}100%{transform:scaleX(1);opacity:0}}
+.spark{animation:rise 2.8s linear infinite;opacity:0}
+@keyframes rise{0%{transform:translateY(0);opacity:0}15%{opacity:1}100%{transform:translateY(-120px);opacity:0}}
+.seal-glow{animation:sealglow 4.5s ease-in-out infinite}
+@keyframes sealglow{0%,40%{opacity:0}60%,85%{opacity:.9}100%{opacity:0}}
+
+/* pillars */
+.pillars{margin-top:80px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1.5px solid var(--graphit)}
+.pillar{padding:30px 28px 36px 0;border-right:1px solid var(--rule)}
+.pillar+.pillar{padding-left:28px}
+.pillar:last-child{border-right:0}
+.pillar h3{font-family:Archivo;font-stretch:112%;font-size:22px;font-weight:700;margin:12px 0 8px;display:flex;align-items:center;gap:10px}
+.pillar p{color:var(--muted);font-size:16px}
+.ico{width:44px;height:44px;border-radius:8px;background:var(--graphit);display:grid;place-items:center}
+.ico svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:1.8}
+
+/* logos */
+.logos{padding:48px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);overflow:hidden;mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.track{display:flex;gap:72px;width:max-content;animation:marq 34s linear infinite}
+.logos:hover .track{animation-play-state:paused}
+.track img{height:34px;width:auto;opacity:.6;filter:grayscale(1);transition:opacity .2s}
+.track img:hover{opacity:1}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* about */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.photo{position:relative;border-radius:10px;overflow:hidden;aspect-ratio:5/4;background:#cfd2ce}
+.photo img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.photo:hover img{transform:scale(1.04)}
+.photo .stamp{position:absolute;left:16px;bottom:16px;background:var(--graphit);color:#fff;padding:9px 14px;border-radius:4px}
+
+/* services */
+.services{background:var(--kreide)}
+.svc{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding:60px 0;border-top:1px solid var(--rule)}
+.svc:first-of-type{margin-top:50px}
+.svc:nth-of-type(even) .photo{order:-1}
+.svc .num{color:var(--signal)}
+.svc h3{font-family:Archivo;font-stretch:115%;font-weight:800;font-size:clamp(26px,3vw,36px);letter-spacing:-.02em;line-height:1.1;margin:10px 0 14px}
+.svc p{color:var(--muted)}
+.checks{list-style:none;margin:24px 0 28px;display:grid;gap:10px}
+.checks li{display:flex;gap:12px;align-items:flex-start;font-weight:500}
+.checks li::before{content:"";flex:0 0 20px;height:20px;margin-top:3px;border-radius:4px;background:var(--flucht) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' fill='none' stroke='%23fff' stroke-width='2.2'/%3E%3C/svg%3E") center/16px no-repeat}
+.svc .photo{aspect-ratio:4/3}
+.svc .photo .stamp{background:var(--signal)}
+
+/* process */
+.dark{background:var(--graphit);color:#fff}
+.dark .lead{color:rgba(255,255,255,.65)}
+.dark .grid-bg,.dark.grid-bg{background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px)}
+.steps{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:64px;padding-top:44px}
+.rail{position:absolute;top:0;left:0;right:0;height:3px;background:rgba(255,255,255,.12);border-radius:3px;overflow:hidden}
+.rail i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--glut),var(--signal));transform-origin:left;transform:scaleX(var(--p,0));transition:transform .15s linear}
+.step{position:relative}
+.step::before{content:"";position:absolute;top:-50px;left:0;width:15px;height:15px;border-radius:50%;background:var(--graphit);border:3px solid rgba(255,255,255,.3);transition:border-color .3s,background .3s}
+.step.lit::before{border-color:var(--signal);background:var(--signal)}
+.step .mono{color:var(--glut)}
+.step h3{font-family:Archivo;font-stretch:112%;font-size:22px;font-weight:700;margin:10px 0 8px}
+.step p{color:rgba(255,255,255,.65);font-size:16px}
+.cta-band{margin-top:90px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;background:linear-gradient(120deg,var(--signal),#B9230D 70%);border-radius:10px;padding:52px;position:relative;overflow:hidden}
+.cta-band::after{content:"";position:absolute;right:-80px;top:-80px;width:320px;height:320px;border:1.5px solid rgba(255,255,255,.18);border-radius:50%;box-shadow:0 0 0 40px rgba(255,255,255,.05),0 0 0 80px rgba(255,255,255,.03)}
+.cta-band h2{font-size:clamp(28px,3.4vw,42px)}
+.cta-band p{color:rgba(255,255,255,.85);margin-top:12px}
+.cta-band .btns{display:flex;flex-direction:column;gap:12px;align-items:flex-start;position:relative;z-index:1}
+.cta-band .btn-white{background:#fff;color:var(--graphit)}
+.cta-band small{color:rgba(255,255,255,.8);font-size:14px}
+
+/* promise */
+.promise{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:50px;border:1.5px solid var(--graphit);border-radius:10px;overflow:hidden;background:var(--kreide)}
+.promise div{padding:24px 26px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);display:flex;gap:12px;align-items:center;font-weight:600}
+.promise div:nth-child(3n){border-right:0}
+.promise div:nth-last-child(-n+3){border-bottom:0}
+.promise div::before{content:"";flex:0 0 20px;height:20px;border-radius:4px;background:var(--flucht) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' fill='none' stroke='%23fff' stroke-width='2.2'/%3E%3C/svg%3E") center/16px no-repeat}
+
+/* mission */
+.mission{background:var(--kreide)}
+.quote{font-family:Archivo;font-stretch:108%;font-weight:600;font-size:clamp(22px,2.4vw,30px);line-height:1.35;letter-spacing:-.01em}
+.quote::before{content:"«";color:var(--signal);display:block;font-size:72px;line-height:.6;margin-bottom:10px}
+.person{display:flex;align-items:center;gap:14px;margin-top:28px}
+.person img{width:52px;height:52px;border-radius:10px;object-fit:cover;background:#cfd2ce}
+.person b{display:block}.person span{color:var(--muted);font-size:14px}
+
+/* testimonials */
+.tgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:50px}
+.t{background:var(--graphit-2);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:28px;display:flex;flex-direction:column;transition:transform .3s,border-color .3s}
+.t:hover{transform:translateY(-6px);border-color:rgba(227,54,27,.6)}
+.stars{color:var(--glut);letter-spacing:3px;font-size:15px;margin-bottom:16px}
+.t p{color:rgba(255,255,255,.82);font-size:16px;flex:1}
+.t .role{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.55)}
+
+/* faq */
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px;margin-top:50px;align-items:start}
+details{background:var(--kreide);border:1px solid var(--rule);border-radius:8px;transition:border-color .2s}
+details[open]{border-color:var(--graphit)}
+summary{list-style:none;cursor:pointer;padding:20px 22px;display:flex;justify-content:space-between;gap:16px;font-weight:600;font-size:17px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";flex:0 0 22px;height:22px;border-radius:50%;background:var(--graphit) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 5v10M5 10h10' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E") center/14px no-repeat;transition:transform .25s,background-color .25s}
+details[open] summary::after{transform:rotate(45deg);background-color:var(--signal)}
+.ans{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+details[open] .ans{grid-template-rows:1fr}
+.ans>div{overflow:hidden}
+.ans p{padding:0 22px 20px;color:var(--muted)}
+
+/* contact */
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:stretch}
+.card{background:var(--kreide);border:1.5px solid var(--graphit);border-radius:10px;padding:34px;display:flex;flex-direction:column;gap:18px}
+.card h3{font-family:Archivo;font-stretch:112%;font-size:22px;font-weight:700}
+.line{display:flex;gap:14px;align-items:flex-start}
+.line svg{width:20px;height:20px;flex:none;margin-top:3px;stroke:var(--signal);fill:none;stroke-width:1.8}
+.line a{font-weight:600}
+.line a:hover{color:var(--signal)}
+.map{border-radius:10px;overflow:hidden;border:1px solid var(--rule);min-height:380px;background:#cfd2ce}
+.map iframe{width:100%;height:100%;min-height:380px;border:0;filter:grayscale(.6) contrast(1.05)}
+
+/* footer */
+footer{background:var(--graphit);color:rgba(255,255,255,.65);padding:70px 0 30px;font-size:15px}
+.fcols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+footer h4{color:#fff;font:600 13px "IBM Plex Mono";letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+footer a{display:block;margin-bottom:8px}
+footer a:hover{color:#fff}
+.wordmark{font-family:Archivo;font-stretch:125%;font-weight:900;font-size:clamp(48px,11vw,150px);letter-spacing:-.04em;line-height:1;color:#fff;margin:60px 0 20px;white-space:nowrap;overflow:hidden}
+.wordmark span{color:var(--signal)}
+.fbottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid rgba(255,255,255,.12);padding-top:20px;font-size:13px}
+
+/* draft ribbon + whatsapp */
+.draft{position:fixed;left:16px;bottom:16px;z-index:60;background:var(--graphit);color:#fff;border-radius:100px;padding:8px 14px 8px 10px;display:flex;align-items:center;gap:8px;font-size:12px;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.draft i{width:8px;height:8px;border-radius:50%;background:#B8E62A}
+.wa{position:fixed;right:18px;bottom:18px;z-index:60;display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;border-radius:100px;padding:12px 18px 12px 14px;font-weight:600;font-size:15px;box-shadow:0 10px 30px rgba(37,211,102,.35);transition:transform .2s}
+.wa:hover{transform:translateY(-3px)}
+.wa svg{width:26px;height:26px;fill:#fff}
+.wa::before{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:0 0 0 0 rgba(37,211,102,.55);animation:ping 2.6s infinite}
+@keyframes ping{70%,100%{box-shadow:0 0 0 14px rgba(37,211,102,0)}}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:1000px){
+  .hero-grid,.split,.svc,.contact,.cta-band{grid-template-columns:1fr;gap:40px}
+  .svc:nth-of-type(even) .photo{order:0}
+  .pillars,.promise{grid-template-columns:1fr}
+  .pillar,.pillar+.pillar{padding:24px 0;border-right:0;border-bottom:1px solid var(--rule)}
+  .promise div{border-right:0!important;border-bottom:1px solid var(--rule)!important}
+  .promise div:last-child{border-bottom:0!important}
+  .steps{grid-template-columns:1fr 1fr;row-gap:50px}
+  .tgrid{grid-template-columns:1fr 1fr}
+  .faq-grid,.fcols{grid-template-columns:1fr}
+  .menu{position:fixed;inset:0;background:var(--beton);flex-direction:column;justify-content:center;font-size:24px;gap:26px;transform:translateY(-100%);visibility:hidden;transition:transform .35s,visibility .35s}
+  .menu.open{transform:none;visibility:visible}
+  .burger{display:block;position:relative;z-index:2}
+  .topbar .lbl{display:none}
+}
+@media(max-width:600px){
+  section{padding:84px 0}.wrap{padding:0 16px}
+  .steps,.tgrid{grid-template-columns:1fr}
+  .cta-band{padding:32px 24px}
+  .hero .ctas .btn{width:100%;justify-content:center}
+  .wa span{display:none}.wa{padding:14px}
+  .draft{display:none}
+  .topbar .c{gap:14px;font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span class="lbl"><b>Baulicher Brandschutz</b> in der Region Zürich: Beratung, Planung &amp; Umsetzung</span>
+    <span class="c"><a href="tel:+41787537063">+41 78 753 70 63</a><a href="mailto:anthony.hunt@at-brandschutz.ch">anthony.hunt@at-brandschutz.ch</a></span>
+  </div>
+</div>
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="logo"><img src="https://onecdn.io/media/8df8918e-ee97-4cc6-b0e9-777c2f2d0c90/md" alt="AT Brandschutz" onerror="this.style.display='none'"><span>AT Brandschutz</span></a>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+    <div class="menu" id="menu">
+      <a href="#leistungen">Dienstleistungen</a>
+      <a href="#ablauf">So arbeiten wir</a>
+      <a href="#ueber">Über uns</a>
+      <a href="#faq">FAQ</a>
+      <a href="#kontakt" class="btn btn-red">Kontakt aufnehmen</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero grid-bg" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="rv">
+        <div class="who">
+          <div class="faces">
+            <img src="https://onecdn.io/media/5128152d-99f0-45db-96e6-ad7934cea782/sm" alt="">
+            <img src="https://onecdn.io/media/40809903-db7b-4ac0-94ac-e7577f7a1382/sm" alt="">
+            <img src="https://onecdn.io/media/44fd3904-486a-4fcc-ae59-2be174937119/sm" alt="">
+          </div>
+          <span>Für Bauherren, Architekten, Bauunternehmen &amp; Liegenschaftsverwaltungen im Raum Zürich</span>
+        </div>
+        <h1 class="display">Brandschutz, der bei der <em>Abnahme</em> hält.</h1>
+        <p class="lead">Wir planen und realisieren Ihren baulichen Brandschutz, von der Risikoanalyse bis zur fachgerechten Ausführung. Normgerecht, termintreu und lückenlos dokumentiert, mit einem festen Ansprechpartner.</p>
+        <div class="ctas">
+          <a href="#kontakt" class="btn btn-red">Jetzt Kontakt aufnehmen <span aria-hidden="true">→</span></a>
+          <a href="tel:+41787537063" class="btn btn-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 006 6L16 13l5 2v4a2 2 0 01-2 2A17 17 0 013 5a2 2 0 012-2z"/></svg>078 753 70 63</a>
+        </div>
+      </div>
+
+      <figure class="drawing rv" aria-label="Schnittzeichnung einer Rohrdurchführung mit Brandabschottung">
+        <svg viewBox="0 0 560 420" role="img">
+          <defs>
+            <pattern id="hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="10" stroke="#17191C" stroke-width="1.2" opacity=".45"/></pattern>
+            <pattern id="wool" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="1.4" fill="#fff" opacity=".7"/></pattern>
+            <linearGradient id="fire" x1="0" x2="1"><stop offset="0" stop-color="#E3361B" stop-opacity=".85"/><stop offset=".7" stop-color="#FF7A3D" stop-opacity=".35"/><stop offset="1" stop-color="#FF7A3D" stop-opacity="0"/></linearGradient>
+            <linearGradient id="pipeHeat" x1="0" x2="1"><stop offset="0" stop-color="#E3361B"/><stop offset="1" stop-color="#FF7A3D"/></linearGradient>
+          </defs>
+          <!-- fire side -->
+          <rect class="heat" x="0" y="40" width="250" height="330" fill="url(#fire)"/>
+          <g fill="#FF7A3D">
+            <circle class="spark" cx="60" cy="330" r="3" style="animation-delay:0s"/>
+            <circle class="spark" cx="120" cy="350" r="2.5" style="animation-delay:.7s"/>
+            <circle class="spark" cx="180" cy="320" r="2" style="animation-delay:1.4s"/>
+            <circle class="spark" cx="90" cy="300" r="2" style="animation-delay:2s"/>
+            <circle class="spark" cx="200" cy="350" r="3" style="animation-delay:1s"/>
+          </g>
+          <!-- wall section -->
+          <rect x="250" y="20" width="70" height="370" fill="#D5D8D4"/>
+          <rect x="250" y="20" width="70" height="370" fill="url(#hatch)"/>
+          <line x1="250" y1="20" x2="250" y2="390" stroke="#17191C" stroke-width="2"/>
+          <line x1="320" y1="20" x2="320" y2="390" stroke="#17191C" stroke-width="2"/>
+          <!-- seal around pipe -->
+          <rect x="250" y="168" width="70" height="84" fill="#E3361B"/>
+          <rect x="250" y="168" width="70" height="84" fill="url(#wool)"/>
+          <rect class="seal-glow" x="244" y="162" width="12" height="96" fill="#FF7A3D" filter="blur(6px)" style="filter:blur(5px)"/>
+          <!-- pipe -->
+          <rect x="20" y="190" width="520" height="40" fill="#9AA0A6" stroke="#17191C" stroke-width="1.5"/>
+          <rect class="front" x="20" y="190" width="230" height="40" fill="url(#pipeHeat)" style="transform-origin:20px 0"/>
+          <line x1="20" y1="210" x2="540" y2="210" stroke="#17191C" stroke-dasharray="10 5 2 5" stroke-width="1" opacity=".5"/>
+          <!-- labels -->
+          <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#17191C" letter-spacing=".5">
+            <text x="20" y="30" fill="#B9230D" font-weight="500">BRANDSEITE</text>
+            <text x="540" y="30" text-anchor="end">GESCHÜTZTE SEITE</text>
+            <line x1="285" y1="160" x2="360" y2="110" stroke="#17191C"/><circle cx="285" cy="160" r="3" fill="#17191C"/>
+            <text x="366" y="106">WEICHSCHOTT</text>
+            <text x="366" y="120" fill="#5B6066">Brandabschottung</text>
+            <line x1="300" y1="320" x2="370" y2="345" stroke="#17191C"/><circle cx="300" cy="320" r="3" fill="#17191C"/>
+            <text x="376" y="342">MASSIVWAND</text>
+            <text x="376" y="356" fill="#5B6066">Beton, Schnitt</text>
+            <line x1="460" y1="230" x2="460" y2="268" stroke="#17191C"/><circle cx="460" cy="230" r="3" fill="#17191C"/>
+            <text x="460" y="284" text-anchor="middle">ROHRLEITUNG</text>
+            <!-- dimension -->
+            <line x1="250" y1="404" x2="320" y2="404" stroke="#17191C"/>
+            <line x1="250" y1="398" x2="250" y2="410" stroke="#17191C"/><line x1="320" y1="398" x2="320" y2="410" stroke="#17191C"/>
+            <text x="285" y="418" text-anchor="middle" font-size="10">d</text>
+          </g>
+        </svg>
+        <figcaption class="mono"><span>Schnitt A–A · Rohrdurchführung</span><span>Feuer &amp; Rauch bleiben drüben</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar rv"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></div><h3>Planung</h3><p>Wir planen Ihren baulichen Brandschutz von Anfang an mit, normgerecht und auf Ihr Bauvorhaben zugeschnitten.</p></div>
+      <div class="pillar rv"><div class="ico"><svg viewBox="0 0 24 24"><path d="M14 4l6 6-9 9H5v-6z M12 6l6 6"/></svg></div><h3>Brandschutzmassnahmen</h3><p>Technische Umsetzung durch Fachkräfte: Abschottungen, Verkleidungen und Isolationen fachgerecht montiert.</p></div>
+      <div class="pillar rv"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div><h3>Kontrollen &amp; Qualität</h3><p>Wir prüfen unsere eigene Arbeit, bevor es die Behörde tut. Für eine reibungslose Abnahme.</p></div>
+    </div>
+  </div>
+</header>
+
+<div class="logos" aria-label="Partner und Kunden">
+  <div class="track">
+    <img src="https://onecdn.io/media/6fd299ff-a031-4420-ab81-8f0160587b8a/md" alt=""><img src="https://onecdn.io/media/7a401244-bbf7-48e1-b314-2a6cbfd31627/md" alt=""><img src="https://onecdn.io/media/6723dc59-8d50-4f7d-a4a4-25cdc312ee79/md" alt=""><img src="https://onecdn.io/media/8459792d-e839-45c3-a248-86b7c20d83cf/md" alt=""><img src="https://onecdn.io/media/4442f5d5-0e95-4992-b075-ad48e1b4d8ae/md" alt=""><img src="https://onecdn.io/media/45a921ac-b2f0-44d5-aa10-85e5f84ab694/md" alt=""><img src="https://onecdn.io/media/088b6bf2-a071-4614-aa54-6f5bfb576ec8/md" alt=""><img src="https://onecdn.io/media/b0c75c2c-3103-4518-9e0b-8aaf7eebbf1f/md" alt="">
+    <img src="https://onecdn.io/media/6fd299ff-a031-4420-ab81-8f0160587b8a/md" alt="" aria-hidden="true"><img src="https://onecdn.io/media/7a401244-bbf7-48e1-b314-2a6cbfd31627/md" alt="" aria-hidden="true"><img src="https://onecdn.io/media/6723dc59-8d50-4f7d-a4a4-25cdc312ee79/md" alt="" aria-hidden="true"><img src="https://onecdn.io/media/8459792d-e839-45c3-a248-86b7c20d83cf/md" alt="" aria-hidden="true"><img src="https://onecdn.io/media/4442f5d5-0e95-4992-b075-ad48e1b4d8ae/md" alt="" aria-hidden="true"><img src="https://onecdn.io/media/45a921ac-b2f0-44d5-aa10-85e5f84ab694/md" alt="" aria-hidden="true"><img src="https://onecdn.io/media/088b6bf2-a071-4614-aa54-6f5bfb576ec8/md" alt="" aria-hidden="true"><img src="https://onecdn.io/media/b0c75c2c-3103-4518-9e0b-8aaf7eebbf1f/md" alt="" aria-hidden="true">
+  </div>
+</div>
+
+<section id="ueber">
+  <div class="wrap split">
+    <div class="photo rv"><img src="https://onecdn.io/media/151fa3d9-3d7f-42c0-a7bf-f510119f1991/lg" alt="Brandschutzarbeiten auf der Baustelle" loading="lazy"><span class="stamp mono">Region Zürich</span></div>
+    <div class="rv">
+      <div class="tag mono">Über uns</div>
+      <h2 class="display">Ihr Brandschutzteam für die Region Zürich</h2>
+      <p class="lead">Ein Brand kann in Minuten zerstören, was Jahre gekostet hat aufzubauen. Wir sorgen dafür, dass es gar nicht so weit kommt: mit durchdachten, normgerechten Lösungen, die zu Ihrem Gebäude passen.</p>
+      <p class="lead">Sie erhalten einen festen Ansprechpartner statt wechselnder Kontakte, klare Termine statt Verzögerungen und eine Dokumentation, die bei der Abnahme Bestand hat.</p>
+      <div style="margin-top:30px"><a href="#kontakt" class="btn btn-red">Jetzt Kontakt aufnehmen <span aria-hidden="true">→</span></a></div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="leistungen">
+  <div class="wrap">
+    <div class="rv">
+      <div class="tag mono">Dienstleistungen</div>
+      <h2 class="display">Unsere Leistungen im baulichen Brandschutz</h2>
+      <p class="lead">Von der Beratung bis zur fachgerechten Umsetzung, alles aus einer Hand.</p>
+    </div>
+
+    <article class="svc">
+      <div class="rv">
+        <span class="num mono">Beratung</span>
+        <h3>Baulicher Brandschutz &amp; Beratung</h3>
+        <p>Risikoanalysen, Brandschutzkonzepte, Brandgutachten und Begehungen, damit Ihr Gebäude im Ernstfall geschützt ist. Wir wählen die passenden Dämmmaterialien nach geltenden Bauvorschriften aus, damit Ihr Projekt von Anfang an normkonform geplant ist.</p>
+        <ul class="checks"><li>Risikoanalysen &amp; Brandschutzkonzepte</li><li>Brandgutachten &amp; Begehungen</li><li>Materialberatung nach Bauvorschriften</li></ul>
+        <a href="#kontakt" class="btn btn-line">Beratung anfragen <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="photo rv"><img src="https://onecdn.io/media/70cc79f7-8d14-4695-9c00-1b492a26014c/lg" alt="Brandschutzberatung vor Ort" loading="lazy"><span class="stamp mono">Konzept &amp; Gutachten</span></div>
+    </article>
+
+    <article class="svc">
+      <div class="rv">
+        <span class="num mono">Abschottung</span>
+        <h3>Brandabschottungen &amp; Kittfugen</h3>
+        <p>Fachgerechte Abdichtung von Wand- und Deckendurchführungen für Rohre und Kabel. Das verhindert die Ausbreitung von Feuer und Rauch. Dazu fachgerechte Trennfugen an Übergängen, funktional und normgerecht umgesetzt.</p>
+        <ul class="checks"><li>Weichschott-Abschottungen</li><li>Mörtelschott-Abschottungen</li><li>Kittfugen an Übergängen</li></ul>
+        <a href="#kontakt" class="btn btn-line">Abschottung anfragen <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="photo rv"><img src="https://onecdn.io/media/e10ae04b-a7e6-47fb-b993-e66b52ba8976/lg" alt="Brandabschottung an einer Rohrdurchführung" loading="lazy" style="object-position:50% 44%"><span class="stamp mono">Wand &amp; Decke</span></div>
+    </article>
+
+    <article class="svc">
+      <div class="rv">
+        <span class="num mono">Verkleidung &amp; Isolation</span>
+        <h3>Promat-Verkleidungen &amp; Deckenisolation</h3>
+        <p>Feuerwiderstandsfähige Verkleidungen, die Temperaturen bis 1200 °C standhalten. Die Deckenisolation reduziert Wärmeverlust, verbessert den Schallschutz und erfüllt die Brandschutzanforderungen an Keller- und Tiefgaragendecken, mit nicht brennbaren Materialien wie Steinwolle.</p>
+        <ul class="checks"><li>Promat-Verkleidungen bis 1200 °C</li><li>Deckenisolation Keller &amp; Tiefgarage</li><li>Nicht brennbare Dämmstoffe (Steinwolle)</li></ul>
+        <a href="#kontakt" class="btn btn-line">Verkleidung anfragen <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="photo rv"><img src="https://onecdn.io/media/f556c507-9f8e-4bb8-b160-008d0f9741de/lg" alt="Deckenisolation in einer Tiefgarage" loading="lazy"><span class="stamp mono">bis 1200 °C</span></div>
+    </article>
+
+    <div class="promise rv" aria-label="Leistungsumfang">
+      <div>Beratung</div><div>Planung &amp; Konzepte</div><div>Ausführung</div>
+      <div>Qualitätssicherung</div><div>Dokumentation &amp; Nachweis</div><div>Wartung &amp; Instandhaltung</div>
+    </div>
+  </div>
+</section>
+
+<section class="dark grid-bg on-dark" id="ablauf">
+  <div class="wrap">
+    <div class="rv">
+      <div class="tag mono">So arbeiten wir</div>
+      <h2 class="display">Vier klare Schritte bis zur Abnahme</h2>
+      <p class="lead">Damit Sie jederzeit wissen, was als Nächstes passiert.</p>
+    </div>
+    <div class="steps" id="steps">
+      <div class="rail"><i id="rail"></i></div>
+      <div class="step rv"><span class="mono">Schritt 1</span><h3>Anfrage &amp; Erstgespräch</h3><p>Sie schildern Ihr Bauvorhaben, wir klären den Brandschutzbedarf.</p></div>
+      <div class="step rv"><span class="mono">Schritt 2</span><h3>Begehung &amp; Konzept</h3><p>Wir prüfen die Situation vor Ort und erstellen ein passendes Brandschutzkonzept.</p></div>
+      <div class="step rv"><span class="mono">Schritt 3</span><h3>Fachgerechte Umsetzung</h3><p>Ausführung durch geschultes Personal, termingerecht und normgerecht.</p></div>
+      <div class="step rv"><span class="mono">Schritt 4</span><h3>Abnahme &amp; Dokumentation</h3><p>Sie erhalten eine vollständige Dokumentation für Behörde und Bauabnahme.</p></div>
+    </div>
+
+    <div class="cta-band rv">
+      <div>
+        <h2 class="display">Bereit für Ihr Brandschutzprojekt?</h2>
+        <p>Ob Beratung, Planung oder Umsetzung: Sprechen Sie mit uns, bevor der nächste Bauabschnitt startet.</p>
+      </div>
+      <div class="btns">
+        <a href="#kontakt" class="btn btn-white">Jetzt Kontakt aufnehmen <span aria-hidden="true">→</span></a>
+        <small>Oder direkt anrufen: <a href="tel:+41787537063" style="text-decoration:underline">+41 78 753 70 63</a></small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mission">
+  <div class="wrap split">
+    <div class="photo rv" style="aspect-ratio:4/5"><img src="https://onecdn.io/media/8b13590f-3b58-4531-b34e-0b88ac5b136d/lg" alt="Team von AT Brandschutz" loading="lazy" style="object-position:50% 17%"></div>
+    <div class="rv">
+      <div class="tag mono">Mission &amp; Werte</div>
+      <p class="quote">Wir sorgen mit gezielten Massnahmen dafür, dass Brände in Gebäuden verhindert oder im Ernstfall kontrolliert und eingedämmt werden können. Normgerecht, dokumentiert und termingerecht umgesetzt.</p>
+      <p class="lead">Ein Ansprechpartner für Planung und Umsetzung, von der Beratung bis zur Abnahme.</p>
+      <div class="person"><img src="https://onecdn.io/media/4ebd45ef-34ba-45a0-b823-a5b438d27644/sm" alt=""><div><b>A. Hunt</b><span>AT Brandschutz GmbH</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark on-dark">
+  <div class="wrap">
+    <div class="rv">
+      <div class="tag mono">Stimmen</div>
+      <h2 class="display">Was unsere Kunden sagen</h2>
+      <p class="lead">Bauleiter, Architekten, Verwaltungen &amp; Bauherren</p>
+    </div>
+    <div class="tgrid">
+      <div class="t rv"><div class="stars" aria-label="5 von 5">★★★★★</div><p>«Auch bei kurzfristigem Terminbedarf konnte AT Brandschutz die Brandabschottung fachgerecht und termingerecht umsetzen. Die Dokumentation für die Bauabnahme war vollständig und übersichtlich.»</p><div class="role mono">Bauleiter</div></div>
+      <div class="t rv"><div class="stars" aria-label="5 von 5">★★★★★</div><p>«Von der Beratung bis zur Umsetzung lief alles über einen Ansprechpartner. Das Brandschutzkonzept war klar aufgebaut und normgerecht.»</p><div class="role mono">Architekt / Projektleiter</div></div>
+      <div class="t rv"><div class="stars" aria-label="4 von 5">★★★★☆</div><p>«Die Promat-Verkleidung wurde sauber und ohne Beanstandungen ausgeführt. Wir wurden transparent über den Stand informiert.»</p><div class="role mono">Liegenschaftsverwalter</div></div>
+      <div class="t rv"><div class="stars" aria-label="5 von 5">★★★★★</div><p>«Die Deckenisolation in der Tiefgarage wurde termingerecht und nach geltenden Brandschutzvorgaben ausgeführt. Klare Kommunikation, saubere Arbeit.»</p><div class="role mono">Bauherr</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="rv">
+      <div class="tag mono">FAQ</div>
+      <h2 class="display">Häufige Fragen zum baulichen Brandschutz</h2>
+      <p class="lead">Von der Planung über den Ablauf bis zur Dokumentation für die Abnahme.</p>
+    </div>
+    <div class="faq-grid">
+      <div style="display:grid;gap:16px">
+        <details><summary>Wann sollte ich AT Brandschutz ins Projekt holen?</summary><div class="ans"><div><p>Am besten schon in der Planungsphase. So wird der Brandschutz von Anfang an normgerecht eingeplant, und teure Nachbesserungen vor der Abnahme werden vermieden.</p></div></div></details>
+        <details><summary>Übernehmen Sie auch kleinere Aufträge?</summary><div class="ans"><div><p>Ja. Von einzelnen Brandabschottungen oder Kittfugen bis zur kompletten Umsetzung eines Brandschutzkonzepts.</p></div></div></details>
+        <details><summary>In welcher Region sind Sie tätig?</summary><div class="ans"><div><p>Wir sind ein in der Schweiz ansässiges Unternehmen mit Fokus auf die Region Zürich. Zusätzlich planen wir eine Expansion in den Nahen Osten (Golfregion).</p></div></div></details>
+        <details><summary>Welche Materialien setzen Sie ein?</summary><div class="ans"><div><p>Wir wählen die Materialien nach geltenden Bauvorschriften aus, zum Beispiel Promat-Platten für Verkleidungen oder nicht brennbare Steinwolle für Deckenisolationen.</p></div></div></details>
+        <details><summary>Erhalte ich eine Dokumentation für die Abnahme?</summary><div class="ans"><div><p>Ja. Sie erhalten eine vollständige Dokumentation und Nachweisführung für Behörde und Bauabnahme.</p></div></div></details>
+      </div>
+      <div style="display:grid;gap:16px">
+        <details><summary>Für wen arbeitet die AT Brandschutz GmbH?</summary><div class="ans"><div><p>Für Bauherren, Architekten, Bauunternehmen und Liegenschaftsverwaltungen im Raum Zürich.</p></div></div></details>
+        <details><summary>Wie kommt ein Angebot zustande?</summary><div class="ans"><div><p>Nach dem Erstgespräch und einer Vor-Ort-Begehung erhalten Sie ein Angebot auf Basis Ihres konkreten Brandschutzbedarfs.</p></div></div></details>
+        <details><summary>Habe ich einen festen Ansprechpartner?</summary><div class="ans"><div><p>Ja. Von der Beratung bis zur Abnahme läuft alles über einen Ansprechpartner, statt über wechselnde Kontakte.</p></div></div></details>
+        <details><summary>Wie werde ich über den Fortschritt informiert?</summary><div class="ans"><div><p>Wir informieren Sie transparent über den Stand der Arbeiten und stimmen Termine frühzeitig mit Ihrer Bauleitung ab, damit Ihr Bauzeitenplan intakt bleibt.</p></div></div></details>
+        <details><summary>Bieten Sie auch Wartung an?</summary><div class="ans"><div><p>Ja. Neben Beratung, Planung und Ausführung übernehmen wir auch Wartung und Instandhaltung Ihrer Brandschutzmassnahmen.</p></div></div></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="kontakt" style="padding-top:110px">
+  <div class="wrap">
+    <div class="rv" style="margin-bottom:46px">
+      <div class="tag mono">Kontakt</div>
+      <h2 class="display">Brandschutzfrage bei Ihrem Bauprojekt? Wir sind für Sie da.</h2>
+      <p class="lead">Rufen Sie uns an, schreiben Sie uns oder besuchen Sie unser Büro. Wir klären Ihren Brandschutzbedarf direkt mit Ihnen.</p>
+    </div>
+    <div class="contact">
+      <div class="card rv">
+        <h3>Büro Fällanden (Region Zürich)</h3>
+        <div class="line"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><span>AT Brandschutz GmbH<br>Im Breiteli 2, 8117 Fällanden</span></div>
+        <div class="line"><svg viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 006 6L16 13l5 2v4a2 2 0 01-2 2A17 17 0 013 5a2 2 0 012-2z"/></svg><a href="tel:+41787537063">+41 (0)78 753 70 63</a></div>
+        <div class="line"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><a href="mailto:anthony.hunt@at-brandschutz.ch">anthony.hunt@at-brandschutz.ch</a></div>
+        <div class="line"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Montag bis Samstag, 07 bis 18 Uhr</span></div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:10px">
+          <a href="tel:+41787537063" class="btn btn-red">Jetzt anrufen</a>
+          <a href="mailto:anthony.hunt@at-brandschutz.ch?subject=Anfrage%20Brandschutz" class="btn btn-line">E-Mail schreiben</a>
+        </div>
+      </div>
+      <div class="map rv"><iframe title="Karte: Im Breiteli 2, 8117 Fällanden" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=8.626%2C47.364%2C8.652%2C47.376&amp;layer=mapnik&amp;marker=47.3700%2C8.6390"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div><h4>AT Brandschutz GmbH</h4><p>Im Breiteli 2, 8117 Fällanden<br><a href="tel:+41787537063" style="display:inline">+41 (0)78 753 70 63</a><br><a href="mailto:anthony.hunt@at-brandschutz.ch" style="display:inline">anthony.hunt@at-brandschutz.ch</a></p></div>
+      <div><h4>Navigation</h4><a href="#leistungen">Dienstleistungen</a><a href="#ablauf">So arbeiten wir</a><a href="#ueber">Über uns</a><a href="#faq">FAQ</a><a href="#kontakt">Kontakt</a></div>
+      <div><h4>Rechtliches</h4><a href="#">Impressum &amp; Haftungsausschluss</a><a href="#">Datenschutz</a></div>
+    </div>
+    <div class="wordmark" aria-hidden="true">AT Brand<span>schutz</span></div>
+    <div class="fbottom"><span>© <span id="yr">2026</span> AT Brandschutz GmbH. Alle Rechte vorbehalten.</span><span>Sicherheit im Fokus, Schutz in Aktion.</span></div>
+  </div>
+</footer>
+
+<a class="draft" href="../" title="Weitere Entwürfe ansehen"><i></i>Entwurf von didi marketing</a>
+<a class="wa" href="https://wa.me/41795226224?text=Hallo%20Nishan%2C%20zum%20Website-Entwurf%20AT%20Brandschutz%3A%20" target="_blank" rel="noopener" aria-label="Per WhatsApp schreiben">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg><span>WhatsApp</span>
+</a>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  addEventListener('scroll',function(){nav.classList.toggle('stuck',scrollY>40)},{passive:true});
+
+  var menu=document.getElementById('menu'),burger=document.getElementById('burger');
+  function setMenu(open){menu.classList.toggle('open',open);burger.textContent=open?'✕':'☰';burger.setAttribute('aria-expanded',open)}
+  burger.onclick=function(){setMenu(!menu.classList.contains('open'))};
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+
+  // staggered reveal
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){
+    var sib=[].indexOf.call(el.parentNode.children,el);
+    el.style.transitionDelay=Math.min(sib,4)*70+'ms';
+    io.observe(el);
+  });
+
+  // process rail fills with scroll
+  var steps=document.getElementById('steps'),rail=document.getElementById('rail'),items=steps.querySelectorAll('.step');
+  function prog(){
+    var r=steps.getBoundingClientRect(),vh=innerHeight;
+    var p=Math.max(0,Math.min(1,(vh*.75-r.top)/(r.height+vh*.25)));
+    rail.style.setProperty('--p',p);
+    items.forEach(function(s,i){s.classList.toggle('lit',p>=(i/(items.length))+.02)});
+  }
+  addEventListener('scroll',prog,{passive:true});prog();
+
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
