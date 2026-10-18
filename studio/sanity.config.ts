@@ -37,7 +37,7 @@ export default defineConfig({
   document: {
     actions: (actions, {schemaType}) =>
       schemaType === SINGLETON
-        ? actions.filter(({action}) => action && ['publish', 'discardChanges', 'restore'].includes(action))
+        ? actions.filter(({action}) => action && ['publish', 'discardChanges', 'restore', 'delete'].includes(action))
         : actions,
   },
 })

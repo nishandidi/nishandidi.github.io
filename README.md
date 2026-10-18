@@ -15,23 +15,23 @@ Live: https://nishandidi.github.io · Inhalte bearbeiten: https://nishandidi.git
 
 ## Einmalige Einrichtung in Sanity
 
-1. **CORS freigeben:** https://www.sanity.io/manage/project/emuhnqj1 → API → CORS origins →
-   `https://nishandidi.github.io` hinzufügen und **„Allow credentials“ aktivieren** (nötig für das Studio).
-2. **Startinhalte importieren** (einmalig, lokal):
-   ```bash
-   cd studio
-   npm install
-   npx sanity login
-   npm run import-seed
-   ```
-   Danach steht im Studio unter „Startseite“ der komplette aktuelle Inhalt.
+**CORS freigeben:** https://www.sanity.io/manage/project/emuhnqj1 → API → CORS origins →
+`https://nishandidi.github.io` hinzufügen und **„Allow credentials“ aktivieren**.
 
-## Inhalte bearbeiten
+Ein Import ist nicht nötig: Beim ersten Öffnen der „Startseite“ im Studio ist sie mit dem aktuellen
+Website-Inhalt vorausgefüllt. Einmal **Publish** klicken – fertig.
 
-https://nishandidi.github.io/admin/ öffnen → mit Sanity anmelden → „Startseite“ → ändern → **Publish**.
-Die Seite zeigt Änderungen nach wenigen Sekunden (Sanity-CDN).
+## Inhalte bearbeiten (Baukasten)
 
-Tipp: In Überschriften markierst du Wörter mit `*Sternchen*`, um den grünen Marker zu setzen.
+https://nishandidi.github.io/admin/ öffnen → mit Sanity anmelden → „Startseite“.
+
+- **Abschnitte**: Klick auf einen Abschnitt öffnet seine Texte. Über das Menü (⋮) duplizieren oder löschen,
+  mit dem Griff links per Drag & Drop verschieben, mit „+ Element hinzufügen“ neue Bausteine einfügen
+  (z. B. „Freier Textabschnitt“).
+- **Kontakt, Footer & SEO**: zweiter Reiter oben.
+- Danach **Publish** – die Seite zeigt Änderungen nach wenigen Sekunden.
+- Wörter in `*Sternchen*` bekommen in Überschriften den grünen Marker.
+- Zurücksetzen auf den Ausgangsinhalt: Dokument über ⋮ → Delete löschen und „Startseite“ neu öffnen.
 
 ## Schema ändern
 

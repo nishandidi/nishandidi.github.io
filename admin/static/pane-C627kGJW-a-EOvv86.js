@@ -1,0 +1,1 @@
+export{i as default}from"./sanity-DDs06NlR.js";

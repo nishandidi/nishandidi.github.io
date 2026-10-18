@@ -262,6 +262,12 @@ details .ans{padding:0 50px 26px 0;color:var(--beton-ink)}
 details .ans p + p, details .ans p + ul, details .ans ul + p{margin-top:12px}
 details .ans ul{padding-left:20px}
 
+/* free text block */
+.textblock .prose{font-size:19px;color:var(--beton-ink);max-width:720px}
+.textblock .prose p + p{margin-top:16px}
+.textblock.dark .prose{color:#C9CDC4}
+.textblock .btn{margin-top:30px}
+
 /* footer */
 footer{background:var(--tanne);color:var(--kalk);padding:96px 0 40px}
 .foot-grid{display:grid;grid-template-columns:1.4fr .6fr 1fr;gap:48px;padding-bottom:56px;border-bottom:1px solid var(--line-dark)}
@@ -364,7 +370,7 @@ footer{background:var(--tanne);color:var(--kalk);padding:96px 0 40px}
 
 <main>
 <!-- HERO -->
-<section class="hero">
+<section class="hero" data-block="hero">
   <div class="wrap hero-grid">
     <div>
       <p class="eyebrow" data-s="hero.eyebrow">Für KMU &amp; Handwerk in der Schweiz</p>
@@ -419,7 +425,7 @@ footer{background:var(--tanne);color:var(--kalk);padding:96px 0 40px}
 </section>
 
 <!-- PROBLEM -->
-<section id="problem">
+<section id="problem" data-block="problem">
   <div class="wrap">
     <div class="problem-head rv">
       <div>
@@ -456,7 +462,7 @@ footer{background:var(--tanne);color:var(--kalk);padding:96px 0 40px}
 </section>
 
 <!-- STATS -->
-<section class="dark stats" id="ergebnisse">
+<section class="dark stats" id="ergebnisse" data-block="stats">
   <div class="wrap">
     <div class="stats-head rv">
       <p class="eyebrow" data-s="stats.eyebrow">Ergebnisse statt bunte Reportings</p>
@@ -483,7 +489,7 @@ footer{background:var(--tanne);color:var(--kalk);padding:96px 0 40px}
 </section>
 
 <!-- SERVICES -->
-<section id="leistungen">
+<section id="leistungen" data-block="services">
   <div class="wrap">
     <div class="rv">
       <p class="eyebrow" data-s="services.eyebrow">Leistungen</p>
@@ -528,7 +534,7 @@ footer{background:var(--tanne);color:var(--kalk);padding:96px 0 40px}
 </section>
 
 <!-- PROCESS -->
-<section class="process" id="ablauf">
+<section class="process" id="ablauf" data-block="process">
   <div class="wrap">
     <div class="rv">
       <p class="eyebrow" data-s="process.eyebrow">Ablauf</p>
@@ -569,7 +575,7 @@ footer{background:var(--tanne);color:var(--kalk);padding:96px 0 40px}
 </section>
 
 <!-- CASES -->
-<section class="dark" id="cases">
+<section class="dark" id="cases" data-block="cases">
   <div class="wrap">
     <div class="rv">
       <p class="eyebrow" data-s="cases.eyebrow">Fallstudien</p>
@@ -580,7 +586,7 @@ footer{background:var(--tanne);color:var(--kalk);padding:96px 0 40px}
       </div>
     </div>
 
-    <div class="case-list" id="pane-k" role="tabpanel" aria-labelledby="tab-k">
+    <div class="case-list" id="pane-k" data-cat="kunden" role="tabpanel" aria-labelledby="tab-k">
       <article class="case">
         <div class="case-img"><img data-f-img="image" src="https://onecdn.io/media/c2a9f660-c5dd-4772-8959-ea772a655dfd/md" alt="Fit4Life AG Studio" loading="lazy"></div>
         <div class="case-quote">
@@ -605,7 +611,7 @@ footer{background:var(--tanne);color:var(--kalk);padding:96px 0 40px}
       </article>
     </div>
 
-    <div class="case-list" id="pane-f" role="tabpanel" aria-labelledby="tab-f" hidden>
+    <div class="case-list" id="pane-f" data-cat="fachkraefte" role="tabpanel" aria-labelledby="tab-f" hidden>
       <article class="case">
         <div class="case-img"><img data-f-img="image" src="https://onecdn.io/media/784a9db0-6449-4b5a-85fd-995944879f90/md" alt="Jens Tauchert Heizung &amp; Sanitär" loading="lazy"></div>
         <div class="case-quote">
@@ -633,7 +639,7 @@ footer{background:var(--tanne);color:var(--kalk);padding:96px 0 40px}
 </section>
 
 <!-- ABOUT -->
-<section id="ueber">
+<section id="ueber" data-block="about">
   <div class="wrap">
     <div class="rv">
       <p class="eyebrow" data-s="about.eyebrow">Wer dahinter steckt</p>
@@ -660,7 +666,7 @@ footer{background:var(--tanne);color:var(--kalk);padding:96px 0 40px}
 </section>
 
 <!-- TESTIMONIALS -->
-<section style="padding-top:0" id="stimmen">
+<section style="padding-top:0" id="stimmen" data-block="testimonials">
   <div class="wrap">
     <div class="rv">
       <p class="eyebrow" data-s="testimonials.eyebrow">Kundenstimmen</p>
@@ -698,7 +704,7 @@ footer{background:var(--tanne);color:var(--kalk);padding:96px 0 40px}
 </section>
 
 <!-- CONTACT -->
-<section class="dark contact" id="kontakt">
+<section class="dark contact" id="kontakt" data-block="contact">
   <div class="wrap contact-grid">
     <div class="rv">
       <p class="eyebrow" data-s="contact.eyebrow">Kostenlose Potenzialanalyse</p>
@@ -743,7 +749,7 @@ footer{background:var(--tanne);color:var(--kalk);padding:96px 0 40px}
 </section>
 
 <!-- FAQ -->
-<section id="faq">
+<section id="faq" data-block="faq">
   <div class="wrap faq-grid">
     <div class="faq-side rv">
       <p class="eyebrow" data-s="faq.eyebrow">FAQ</p>
@@ -752,7 +758,7 @@ footer{background:var(--tanne);color:var(--kalk);padding:96px 0 40px}
       <div class="person"><img src="https://onecdn.io/media/dd433dbd-52b0-4033-8a5f-8dffa89a0656/sm" alt="" loading="lazy"><div><b>Deine Frage ist nicht dabei?</b><span style="color:var(--beton-ink)">Ich antworte innert 24 Stunden persönlich.</span></div></div>
       <a class="btn btn-ghost" href="https://wa.me/41795226224?text=Anfrage%20f%C3%BCr%20Webseite%2FMarketing%3A" target="_blank" rel="noopener">Schreib mir auf WhatsApp</a>
     </div>
-    <div class="rv" id="faq-list">
+    <div class="rv faq-list" id="faq-list">
       <details>
         <summary>Was passiert in der kostenlosen Potenzialanalyse?<span class="pm" aria-hidden="true">+</span></summary>
         <div class="ans"><p>Wir schauen uns gemeinsam deine Website, deine aktuelle Werbung und dein Angebot an. Du bekommst eine ehrliche Einschätzung, wo du Anfragen verlierst, und konkrete Hebel – auch wenn wir danach nicht zusammenarbeiten.</p></div>
@@ -798,12 +804,25 @@ footer{background:var(--tanne);color:var(--kalk);padding:96px 0 40px}
 </section>
 </main>
 
+<template id="tpl-textBlock">
+<section class="textblock" data-block="textBlock">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow" data-s="textBlock.eyebrow"></p>
+      <h2 data-m="textBlock.title"></h2>
+      <div class="prose"></div>
+      <a class="btn btn-primary" href="#kontakt" hidden><span></span> <span class="arr" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+</template>
+
 <footer>
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <h2 data-m="footer.title">Mehr Kunden. Mehr Fachkräfte. <span class="mark">Mehr Wachstum.</span></h2>
-        <p data-s="footer.text">Nishan Didi – dein Wachstumspartner für KMU und Handwerk in der Schweiz. Egal, ob du gleich starten willst oder erst Ideen sammelst: Schreib mir.</p>
+        <h2 data-m="settings.footerTitle">Mehr Kunden. Mehr Fachkräfte. <span class="mark">Mehr Wachstum.</span></h2>
+        <p data-s="settings.footerText">Nishan Didi – dein Wachstumspartner für KMU und Handwerk in der Schweiz. Egal, ob du gleich starten willst oder erst Ideen sammelst: Schreib mir.</p>
       </div>
       <div class="foot-col">
         <span class="mono">Schnellzugriff</span>
@@ -818,9 +837,9 @@ footer{background:var(--tanne);color:var(--kalk);padding:96px 0 40px}
         <span class="mono">E-Mail</span>
         <div class="val"><a id="mail-link" href="mailto:didimedia.agentur@gmail.com">didimedia.agentur@gmail.com</a></div>
         <span class="mono">Antwortzeit</span>
-        <div class="val" data-s="footer.responseTime">Innert 24 Stunden – persönlich</div>
+        <div class="val" data-s="settings.responseTime">Innert 24 Stunden – persönlich</div>
         <span class="mono">Standort</span>
-        <div class="val" data-s="footer.location">Volketswil, Schweiz</div>
+        <div class="val" data-s="settings.location">Volketswil, Schweiz</div>
       </div>
     </div>
     <div class="foot-bottom">
@@ -920,26 +939,26 @@ footer{background:var(--tanne);color:var(--kalk);padding:96px 0 40px}
   // used by cms.js for content rendered from Sanity
   window.__reveal = function(root){ root.querySelectorAll('.rv').forEach(function(el){ io.observe(el); }); };
 
-  // tabs
-  var tabs = document.querySelectorAll('.tab');
-  function select(tab){
-    tabs.forEach(function(t){
+  // tabs (delegated, so sections rebuilt from Sanity keep working)
+  function selectTab(tab){
+    var section = tab.closest('section');
+    section.querySelectorAll('.tab').forEach(function(t){
       var on = t === tab; t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1;
-      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      var pane = section.querySelector('#' + t.getAttribute('aria-controls')); if(pane) pane.hidden = !on;
     });
   }
-  tabs.forEach(function(t, i){
-    t.addEventListener('click', function(){ select(t); });
-    t.addEventListener('keydown', function(e){
-      if(e.key === 'ArrowRight' || e.key === 'ArrowLeft'){ var n = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]; select(n); n.focus(); }
-    });
+  document.addEventListener('click', function(e){ var t = e.target.closest('.tab'); if(t) selectTab(t); });
+  document.addEventListener('keydown', function(e){
+    var t = e.target.closest && e.target.closest('.tab'); if(!t || (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft')) return;
+    var tabs = Array.prototype.filter.call(t.closest('section').querySelectorAll('.tab'), function(x){ return !x.hidden; });
+    var i = tabs.indexOf(t), n = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]; selectTab(n); n.focus();
   });
 
   // form -> prepared e-mail
-  var form = document.getElementById('form'), msg = document.getElementById('form-msg');
-  form.addEventListener('submit', function(e){
+  document.addEventListener('submit', function(e){
+    var form = e.target; if(!form.classList.contains('form')) return;
     e.preventDefault();
-    var f = form.elements, missing = [];
+    var msg = form.querySelector('.form-note'), f = form.elements, missing = [];
     if(!f.vorname.value.trim()) missing.push('Vorname');
     if(!f.nachname.value.trim()) missing.push('Nachname');
     if(!/^\S+@\S+\.\S+$/.test(f.email.value.trim())) missing.push('E-Mail');

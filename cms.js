@@ -1,16 +1,16 @@
 /*
- * Loads the published "Startseite" document from Sanity and swaps it into the page.
- * The HTML already contains the full content, so if Sanity is unreachable or a field
- * is empty, the page simply keeps what is there.
+ * Loads the published "Startseite" from Sanity and builds the page from its blocks
+ * (order, added, removed or duplicated sections). The HTML already contains the full
+ * page, so if Sanity is unreachable or has no content yet, the page stays as it is.
  */
 (function () {
   var PROJECT = 'emuhnqj1';
   var DATASET = 'production';
-  var QUERY = '*[_id == "landingPage"][0]{..., ' +
-    'hero{..., "portraitUrl": portrait.asset->url}, ' +
-    'about{..., "photoUrl": photo.asset->url}, ' +
-    'cases{..., items[]{..., "imageUrl": image.asset->url, "avatarUrl": avatar.asset->url}}, ' +
-    'testimonials{..., items[]{..., "avatarUrl": avatar.asset->url}}}';
+  var QUERY = '*[_id == "landingPage"][0]{settings, sections[]{..., ' +
+    '_type == "hero" => {"portraitUrl": portrait.asset->url}, ' +
+    '_type == "about" => {"photoUrl": photo.asset->url}, ' +
+    '_type == "cases" => {items[]{..., "imageUrl": image.asset->url, "avatarUrl": avatar.asset->url}}, ' +
+    '_type == "testimonials" => {items[]{..., "avatarUrl": avatar.asset->url}}}}';
   var URL = 'https://' + PROJECT + '.apicdn.sanity.io/v2024-01-01/data/query/' + DATASET +
     '?query=' + encodeURIComponent(QUERY);
 
@@ -25,135 +25,161 @@
   }
   // "Deine Website soll *Kunden bringen.*" -> marker highlight on the starred part
   function mark(str) { return esc(str).replace(/\*([^*]+)\*/g, '<span class="mark">$1</span>'); }
-  function img(url, w) { return url ? url + '?w=' + w + '&auto=format&fit=max' : ''; }
-  function reveal(root) { if (window.__reveal) window.__reveal(root); }
-
+  function paragraphs(str) {
+    return String(str || '').split(/\n\s*\n/).filter(function (p) { return p.trim(); })
+      .map(function (p) { return '<p>' + esc(p.trim()).replace(/\n/g, '<br>') + '</p>'; }).join('');
+  }
+  function sized(url, w) { return url.indexOf('cdn.sanity.io') > -1 ? url + '?w=' + w + '&auto=format&fit=max' : url; }
   function setText(el, v) { if (has(v)) el.textContent = v; }
-  function setImg(el, url, w) { if (url) { el.src = url.indexOf('cdn.sanity.io') > -1 ? img(url, w) : url; el.style.visibility = ''; } }
+  function setImg(el, url, w) { if (el && url) { el.src = sized(url, w || 1200); el.style.visibility = ''; } }
+  function all(root, sel) { return Array.prototype.slice.call(root.querySelectorAll(sel)); }
 
   // Rebuilds a list by cloning the existing children as templates (keeps icons and layout).
   function renderList(container, items, fill) {
     if (!container || !items || !items.length) return;
     var templates = Array.prototype.slice.call(container.children);
+    if (!templates.length) return;
     var frag = document.createDocumentFragment();
     items.forEach(function (item, i) {
       var node = templates[i % templates.length].cloneNode(true);
-      node.classList.remove('on');
-      fill(node, item, i);
+      fill(node, item || {}, i);
       frag.appendChild(node);
     });
     container.innerHTML = '';
     container.appendChild(frag);
-    reveal(container);
   }
   function fillFields(node, item, i) {
-    node.querySelectorAll('[data-f]').forEach(function (el) {
+    all(node, '[data-f]').forEach(function (el) {
       var k = el.getAttribute('data-f');
       if (k === '#') el.textContent = i + 1; else setText(el, item[k]);
     });
   }
-  function bulletsHtml(list, items) {
-    var tpl = list.querySelector('li');
-    if (!tpl || !items || !items.length) return;
-    var svg = tpl.querySelector('svg').outerHTML;
-    list.innerHTML = items.map(function (t) { return '<li>' + svg + esc(t) + '</li>'; }).join('');
-  }
 
-  function apply(d) {
-    if (!d) return;
+  // Fills one section node with the data of one block.
+  function applyBlock(root, type, block) {
+    var d = {}; d[type] = block;
 
-    document.querySelectorAll('[data-s]').forEach(function (el) { setText(el, get(d, el.getAttribute('data-s'))); });
-    document.querySelectorAll('[data-m]').forEach(function (el) {
-      var v = get(d, el.getAttribute('data-m')); if (has(v)) el.innerHTML = mark(v);
+    all(root, '[data-s]').forEach(function (el) { setText(el, get(d, el.getAttribute('data-s'))); });
+    all(root, '[data-m]').forEach(function (el) { var v = get(d, el.getAttribute('data-m')); if (has(v)) el.innerHTML = mark(v); });
+    all(root, '[data-img]').forEach(function (el) { setImg(el, get(d, el.getAttribute('data-img'))); });
+    all(root, '[data-href]').forEach(function (el) { var v = get(d, el.getAttribute('data-href')); if (has(v)) el.href = v; });
+    all(root, '[data-bullets]').forEach(function (list) {
+      var items = get(d, list.getAttribute('data-bullets')), tpl = list.querySelector('li');
+      if (!tpl || !items || !items.length) return;
+      var svg = tpl.querySelector('svg') ? tpl.querySelector('svg').outerHTML : '';
+      list.innerHTML = items.map(function (t) { return '<li>' + svg + esc(t) + '</li>'; }).join('');
     });
-    document.querySelectorAll('[data-img]').forEach(function (el) { setImg(el, get(d, el.getAttribute('data-img')), 1200); });
-    document.querySelectorAll('[data-bullets]').forEach(function (el) { bulletsHtml(el, get(d, el.getAttribute('data-bullets'))); });
-    document.querySelectorAll('[data-href]').forEach(function (el) { var v = get(d, el.getAttribute('data-href')); if (has(v)) el.href = v; });
 
-    // legacy image URLs from the old site (used until a new image is uploaded)
-    if (d.hero && !d.hero.portraitUrl && d.hero.portraitLegacyUrl) setImg(document.querySelector('[data-img="hero.portraitUrl"]'), d.hero.portraitLegacyUrl);
-    if (d.about && !d.about.photoUrl && d.about.photoLegacyUrl) setImg(document.querySelector('[data-img="about.photoUrl"]'), d.about.photoLegacyUrl);
+    if (type === 'hero' && !block.portraitUrl) setImg(root.querySelector('[data-img="hero.portraitUrl"]'), block.portraitLegacyUrl);
+    if (type === 'about' && !block.photoUrl) setImg(root.querySelector('[data-img="about.photoUrl"]'), block.photoLegacyUrl);
 
-    renderList(document.querySelector('[data-list="problem.cards"]'), get(d, 'problem.cards'), fillFields);
-    renderList(document.querySelector('[data-list="services.items"]'), get(d, 'services.items'), fillFields);
-    renderList(document.querySelector('[data-list="process.steps"]'), get(d, 'process.steps'), fillFields);
+    if (type === 'problem') renderList(root.querySelector('[data-list="problem.cards"]'), block.cards, fillFields);
+    if (type === 'services') renderList(root.querySelector('[data-list="services.items"]'), block.items, fillFields);
+    if (type === 'process') renderList(root.querySelector('[data-list="process.steps"]'), block.steps, fillFields);
 
-    // stats
-    var stats = get(d, 'stats.items');
-    if (stats && stats.length) {
-      var grid = document.getElementById('stats-grid');
-      grid.innerHTML = stats.map(function (s, i) {
+    if (type === 'stats' && block.items && block.items.length) {
+      root.querySelector('.stats-grid').innerHTML = block.items.map(function (s, i) {
         return '<div class="stat rv"><span class="mono">' + esc(s.label || '') + '</span>' +
           '<div class="stat-num">' + (s.prefix ? '<small>' + esc(s.prefix) + '</small>' : '') +
           '<span>' + esc(has(s.value) ? s.value : '') + '</span>' +
           (s.suffix ? '<small>' + esc(s.suffix) + '</small>' : '') +
-          (i === stats.length - 1 ? '<span class="dot" aria-hidden="true"></span>' : '') + '</div>' +
+          (i === block.items.length - 1 ? '<span class="dot" aria-hidden="true"></span>' : '') + '</div>' +
           '<p>' + esc(s.text || '') + '</p></div>';
       }).join('');
-      reveal(grid);
     }
 
-    // cases, split by category into the two tabs
-    var cases = get(d, 'cases.items');
-    if (cases && cases.length) {
-      [['kunden', 'pane-k'], ['fachkraefte', 'pane-f']].forEach(function (pair) {
-        var list = cases.filter(function (c) { return (c.category || 'kunden') === pair[0]; });
-        renderList(document.getElementById(pair[1]), list, function (node, c) {
+    if (type === 'cases' && block.items && block.items.length) {
+      all(root, '.case-list').forEach(function (pane) {
+        var cat = pane.getAttribute('data-cat');
+        var list = block.items.filter(function (c) { return (c.category || 'kunden') === cat; });
+        var tab = root.querySelector('.tab[aria-controls="' + pane.id + '"]');
+        if (tab) tab.hidden = !list.length;
+        renderList(pane, list, function (node, c) {
           fillFields(node, c);
           var im = node.querySelector('[data-f-img="image"]'), av = node.querySelector('[data-f-img="avatar"]');
-          if (im) setImg(im, c.imageUrl || c.imageLegacyUrl, 800);
-          if (av) setImg(av, c.avatarUrl || c.avatarLegacyUrl, 120);
+          setImg(im, c.imageUrl || c.imageLegacyUrl, 800);
+          setImg(av, c.avatarUrl || c.avatarLegacyUrl, 120);
           if (im) im.alt = c.name || '';
         });
       });
     }
 
-    // testimonials
-    var quotes = get(d, 'testimonials.items');
-    if (quotes && quotes.length) {
-      var q = document.getElementById('quotes');
-      q.innerHTML = quotes.map(function (t) {
+    if (type === 'testimonials' && block.items && block.items.length) {
+      root.querySelector('.quotes').innerHTML = block.items.map(function (t) {
         var face = t.avatarUrl || t.avatarLegacyUrl;
         return '<article class="q' + (t.wide ? ' wide' : '') + ' rv">' +
           '<div class="k">' + esc(t.kpi || '') + (t.kpiLabel ? '<small>' + esc(t.kpiLabel) + '</small>' : '') + '</div>' +
           '<p>' + esc(t.quote || '') + '</p>' +
-          '<div class="person">' + (face ? '<img src="' + esc(face.indexOf('cdn.sanity.io') > -1 ? img(face, 120) : face) + '" alt="" loading="lazy">' : '') +
+          '<div class="person">' + (face ? '<img src="' + esc(sized(face, 120)) + '" alt="" loading="lazy">' : '') +
           '<div><b>' + esc(t.name || '') + '</b><span>' + esc(t.company || '') + '</span></div></div></article>';
       }).join('');
-      reveal(q);
     }
 
-    // faq
-    var faq = get(d, 'faq.items');
-    if (faq && faq.length) {
-      document.getElementById('faq-list').innerHTML = faq.map(function (f) {
-        var paras = String(f.answer || '').split(/\n\s*\n/).map(function (p) { return '<p>' + esc(p.trim()).replace(/\n/g, '<br>') + '</p>'; }).join('');
-        return '<details><summary>' + esc(f.question || '') + '<span class="pm" aria-hidden="true">+</span></summary><div class="ans">' + paras + '</div></details>';
+    if (type === 'faq' && block.items && block.items.length) {
+      root.querySelector('.faq-list').innerHTML = block.items.map(function (f) {
+        return '<details><summary>' + esc(f.question || '') + '<span class="pm" aria-hidden="true">+</span></summary>' +
+          '<div class="ans">' + paragraphs(f.answer) + '</div></details>';
       }).join('');
     }
 
-    // contact details used by the form and links
-    var email = get(d, 'contact.email'), wa = get(d, 'contact.whatsapp');
-    if (has(email)) {
-      window.__contactEmail = email;
-      var ml = document.getElementById('mail-link');
-      if (ml) { ml.href = 'mailto:' + email; ml.textContent = email; }
+    if (type === 'textBlock') {
+      root.classList.toggle('dark', !!block.dark);
+      var eb = root.querySelector('.eyebrow'); if (eb) eb.hidden = !has(block.eyebrow);
+      root.querySelector('.prose').innerHTML = paragraphs(block.body);
+      var btn = root.querySelector('.btn');
+      if (btn) { btn.hidden = !has(block.buttonLabel); btn.querySelector('span').textContent = block.buttonLabel || ''; }
     }
-    if (has(wa)) {
-      var digits = String(wa).replace(/\D/g, '');
-      document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function (a) {
-        a.href = a.href.replace(/wa\.me\/\d+/, 'wa.me/' + digits);
-      });
-    }
+  }
 
-    var seoTitle = get(d, 'footer.seoTitle'), seoDesc = get(d, 'footer.seoDescription');
-    if (has(seoTitle)) document.title = seoTitle;
-    if (has(seoDesc)) { var m = document.querySelector('meta[name=description]'); if (m) m.content = seoDesc; }
+  function applySettings(s) {
+    if (!s) return;
+    var ft = document.querySelector('[data-m="settings.footerTitle"]');
+    if (ft && has(s.footerTitle)) ft.innerHTML = mark(s.footerTitle);
+    all(document, '[data-s^="settings."]').forEach(function (el) { setText(el, get({settings: s}, el.getAttribute('data-s'))); });
+    if (has(s.email)) {
+      window.__contactEmail = s.email;
+      var ml = document.getElementById('mail-link');
+      if (ml) { ml.href = 'mailto:' + s.email; ml.textContent = s.email; }
+    }
+    if (has(s.whatsapp)) {
+      var digits = String(s.whatsapp).replace(/\D/g, '');
+      all(document, 'a[href^="https://wa.me/"]').forEach(function (a) { a.href = a.href.replace(/wa\.me\/\d+/, 'wa.me/' + digits); });
+    }
+    if (has(s.seoTitle)) document.title = s.seoTitle;
+    if (has(s.seoDescription)) { var m = document.querySelector('meta[name=description]'); if (m) m.content = s.seoDescription; }
+  }
+
+  function build(doc) {
+    if (!doc || !doc.sections || !doc.sections.length) return;
+    var main = document.querySelector('main');
+    var originals = {};
+    all(main, '[data-block]').forEach(function (n) { originals[n.getAttribute('data-block')] = n; });
+    var tplText = document.getElementById('tpl-textBlock');
+    var used = {}, frag = document.createDocumentFragment();
+
+    doc.sections.forEach(function (block) {
+      var type = block._type, node;
+      if (type === 'textBlock' && tplText) node = tplText.content.firstElementChild.cloneNode(true);
+      else if (originals[type]) node = used[type] ? originals[type].cloneNode(true) : originals[type];
+      if (!node) return;
+      if (used[type] && node.id) node.removeAttribute('id');
+      used[type] = true;
+      applyBlock(node, type, block);
+      frag.appendChild(node);
+    });
+
+    main.innerHTML = '';
+    main.appendChild(frag);
+    if (window.__reveal) window.__reveal(main);
   }
 
   if (!window.fetch) return;
   fetch(URL)
     .then(function (res) { return res.ok ? res.json() : null; })
-    .then(function (json) { if (json && json.result) apply(json.result); })
+    .then(function (json) {
+      if (!json || !json.result) return;
+      build(json.result);
+      applySettings(json.result.settings);
+    })
     .catch(function () { /* keep built-in content */ });
 })();
