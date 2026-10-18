@@ -1,0 +1,26 @@
+{
+  "name": "didi-studio",
+  "private": true,
+  "version": "1.0.0",
+  "main": "package.json",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "sanity dev",
+    "start": "sanity start",
+    "build": "sanity build ../admin -y",
+    "deploy": "sanity deploy",
+    "import-seed": "sanity dataset import seed.ndjson production --missing"
+  },
+  "keywords": ["sanity"],
+  "dependencies": {
+    "@sanity/vision": "^6.19.0",
+    "react": "^19.2.2",
+    "react-dom": "^19.2.2",
+    "sanity": "^6.19.0",
+    "styled-components": "^6.1.15"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "typescript": "^5.8.0"
+  }
+}

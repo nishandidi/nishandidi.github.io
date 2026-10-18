@@ -1,0 +1,958 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nishan Didi – Wachstumspartner | Mehr Kunden über deine Website</title>
+<meta name="description" content="Websites und Werbekampagnen für KMU und Handwerk in der Schweiz, die Anfragen bringen – Kunden oder Fachkräfte. 80+ B2B-Unternehmen betreut. Jetzt kostenlose Potenzialanalyse anfragen.">
+<meta property="og:title" content="Nishan Didi – Wachstumspartner für KMU & Handwerk">
+<meta property="og:description" content="Websites und Werbung, die Anfragen bringen. Messbar, jede Woche.">
+<meta property="og:image" content="https://onecdn.io/media/dd433dbd-52b0-4033-8a5f-8dffa89a0656/lg">
+<meta name="theme-color" content="#0E2219">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E2219'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='17' fill='%23C8F03C' text-anchor='middle'%3End%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --kalk:#F1F2EE;
+  --kalk-2:#E6E8E1;
+  --paper:#FFFFFF;
+  --tanne:#0E2219;
+  --tanne-2:#173326;
+  --tanne-3:#22453A;
+  --lime:#C8F03C;
+  --beton:#9A9D95;
+  --beton-ink:#5E625A;
+  --messing:#B8894A;
+  --line:rgba(14,34,25,.14);
+  --line-dark:rgba(241,242,238,.14);
+  --display:"Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --body:"Inter", "Helvetica Neue", Arial, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+  --r:10px;
+  --wrap:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--kalk);color:var(--tanne);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--messing);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--beton-ink);display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 1px var(--tanne)}
+h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:-.025em;line-height:1.02}
+h2{font-size:clamp(36px,5vw,64px);margin:16px 0 18px}
+h3{font-size:22px;letter-spacing:-.01em;line-height:1.2}
+.lede{font-size:19px;color:var(--beton-ink);max-width:620px}
+.mark{background:linear-gradient(transparent 12%,var(--lime) 12%,var(--lime) 88%,transparent 88%);padding:0 .12em;margin:0 -.04em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.under{background:linear-gradient(transparent 78%,var(--lime) 78%,var(--lime) 96%,transparent 96%)}
+section{padding:120px 0}
+.dark{background:var(--tanne);color:var(--kalk)}
+.dark .lede,.dark .eyebrow{color:var(--beton)}
+.dark .eyebrow::before{box-shadow:none}
+.dark .mark,footer .mark{color:var(--tanne)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 16px/1 var(--body);text-decoration:none;padding:17px 24px;border-radius:999px;border:1.5px solid var(--tanne);transition:transform .2s ease,background .2s ease,color .2s ease;cursor:pointer}
+.btn-primary{background:var(--lime);color:var(--tanne);border-color:var(--tanne)}
+.btn-primary:hover{transform:translateY(-2px);background:#D6F766}
+.btn-ghost{background:transparent;color:var(--tanne)}
+.btn-ghost:hover{background:var(--tanne);color:var(--kalk)}
+.dark .btn-ghost{color:var(--kalk);border-color:var(--line-dark)}
+.dark .btn-ghost:hover{background:var(--kalk);color:var(--tanne)}
+.btn .arr{transition:transform .2s ease}
+.btn:hover .arr{transform:translateX(3px)}
+
+/* header */
+.top{position:sticky;top:0;z-index:50;background:rgba(241,242,238,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
+.top.scrolled{border-bottom-color:var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand-mark{width:36px;height:36px;border-radius:9px;background:var(--tanne);color:var(--lime);display:grid;place-items:center;font:700 16px/1 var(--display)}
+.brand-name{font:700 18px/1.1 var(--display);letter-spacing:-.01em}
+.brand-name small{display:block;font:500 11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--beton-ink)}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{text-decoration:none;font-size:15px;font-weight:500;color:var(--beton-ink);transition:color .15s}
+.nav a:hover{color:var(--tanne)}
+.nav .btn{padding:12px 18px;font-size:14px;color:var(--kalk);background:var(--tanne)}
+.nav .btn:hover{background:var(--tanne-2)}
+.menu-toggle{display:none;background:none;border:1.5px solid var(--line);border-radius:999px;padding:9px 14px;font:600 14px var(--body);color:var(--tanne);cursor:pointer}
+
+/* hero */
+.hero{padding:64px 0 0}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(46px,6.4vw,88px);margin:22px 0 26px}
+.hero h1 .soft{color:var(--beton-ink);font-weight:600}
+.hero .lede{margin-bottom:34px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.reassure{margin-top:22px;display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--beton-ink)}
+.reassure span{display:inline-flex;align-items:center;gap:7px}
+.reassure svg{flex:none}
+
+/* signature: inquiry board */
+.board{position:relative;min-height:600px}
+.portrait{position:absolute;inset:0 0 0 18%;border-radius:18px;overflow:hidden;background:var(--tanne)}
+.portrait::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,rgba(14,34,25,.7) 0%,rgba(14,34,25,0) 40%)}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.portrait-tag{position:absolute;right:20px;top:20px;z-index:2;color:var(--kalk);text-align:right}
+.portrait-tag b{display:block;font:700 20px/1.1 var(--display)}
+.portrait-tag span{font:400 13px/1.4 var(--body);color:#C9CDC4}
+.flap{position:absolute;left:0;top:28px;z-index:3;background:var(--tanne);color:var(--kalk);border-radius:14px;padding:18px 20px 16px;box-shadow:0 24px 50px -20px rgba(14,34,25,.55);border:1px solid var(--tanne-3)}
+.flap-digits{display:flex;gap:6px;margin:10px 0 8px}
+.digit{width:52px;height:68px;border-radius:7px;background:linear-gradient(180deg,#1E3A2E 0 50%,#173326 50% 100%);display:grid;place-items:center;font:700 44px/1 var(--mono);color:var(--kalk);position:relative;overflow:hidden}
+.digit::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.45)}
+.digit.flip{animation:flip .18s ease-in}
+@keyframes flip{0%{transform:rotateX(0)}50%{transform:rotateX(70deg);filter:brightness(.7)}100%{transform:rotateX(0)}}
+.flap .mono{color:var(--beton);font-size:11px}
+.flap .src{font:400 12px/1.4 var(--body);color:var(--beton);max-width:190px}
+.feed{position:absolute;left:0;bottom:30px;z-index:3;width:min(370px,78%);display:flex;flex-direction:column;gap:10px}
+.note{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:center;box-shadow:0 14px 30px -18px rgba(14,34,25,.45);animation:in .6s cubic-bezier(.2,.8,.2,1) both}
+.note-ico{width:34px;height:34px;border-radius:9px;background:var(--kalk-2);display:grid;place-items:center}
+.note.is-new .note-ico{background:var(--lime)}
+.note-t{font:600 14px/1.3 var(--body)}
+.note-s{font:400 11px/1.4 var(--mono);color:var(--beton-ink);letter-spacing:.02em}
+.note-time{font:500 11px/1 var(--mono);color:var(--beton-ink);white-space:nowrap}
+@keyframes in{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+.board-caption{position:absolute;left:0;bottom:0;font:400 11px/1.4 var(--mono);color:var(--beton-ink);letter-spacing:.04em}
+
+/* logo band */
+.logos{padding:72px 0 0}
+.logos-inner{border-top:1px solid var(--line);padding-top:28px;display:flex;align-items:center;gap:40px}
+.logos-label{flex:none;font-size:14px;color:var(--beton-ink);max-width:180px;line-height:1.4}
+.logos-label b{color:var(--tanne);font-family:var(--display);font-size:18px;display:block}
+.marquee{overflow:hidden;flex:1;min-width:0;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.marquee-track{display:flex;gap:64px;width:max-content;animation:scroll 32s linear infinite;align-items:center}
+.marquee img{height:38px;width:auto;filter:brightness(0);opacity:.55}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* problem */
+.problem-head{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end;margin-bottom:56px}
+.problem-head > p{font-size:19px;color:var(--beton-ink)}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px}
+.card .ico{width:44px;height:44px;border-radius:10px;border:1px solid var(--line);display:grid;place-items:center;margin-bottom:22px}
+.card p{color:var(--beton-ink);margin-top:10px;font-size:16px}
+.solution{margin-top:16px;background:var(--tanne);color:var(--kalk);border-radius:var(--r);padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+.solution h3{font-size:28px}
+.solution p{color:#C9CDC4;margin-top:6px;max-width:640px}
+
+/* stats */
+.stats{padding:0}
+.stats-grid{display:grid;grid-template-columns:1fr 1.3fr 1fr;border-top:1px solid var(--line-dark)}
+.stat{padding:56px 36px 64px;border-right:1px solid var(--line-dark)}
+.stat:first-child{padding-left:0}
+.stat:last-child{border-right:0;padding-right:0}
+.stat .mono{color:var(--beton)}
+.stat-num{font:700 clamp(56px,7vw,104px)/1 var(--display);letter-spacing:-.04em;margin:18px 0 16px;display:flex;align-items:baseline;gap:8px}
+.stat-num small{font-size:.42em;letter-spacing:-.01em}
+.stat-num .dot{width:14px;height:14px;border-radius:50%;background:var(--lime);align-self:flex-start;margin-top:12px}
+.stat p{color:#C9CDC4;font-size:16px;max-width:320px}
+.stats-head{padding:110px 0 56px}
+
+/* services */
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:56px}
+.svc{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:34px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s,transform .2s}
+.svc:hover{border-color:var(--tanne);transform:translateY(-3px)}
+.svc-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.svc .tag{font:500 12px/1.4 var(--mono);letter-spacing:.04em;color:var(--beton-ink)}
+.svc h3{font-size:30px;letter-spacing:-.02em}
+.svc p{color:var(--beton-ink)}
+.svc .ico{width:52px;height:52px;border-radius:12px;background:var(--kalk);display:grid;place-items:center;flex:none}
+.svc a.more{margin-top:auto;padding-top:10px;font-weight:600;text-decoration:none;display:inline-flex;gap:8px;align-items:center}
+.svc a.more:hover{text-decoration:underline;text-decoration-color:var(--lime);text-decoration-thickness:3px;text-underline-offset:5px}
+
+/* process timeline */
+.process{background:var(--kalk-2)}
+.timeline{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);margin-top:64px;position:relative}
+.timeline::before{content:"";position:absolute;left:0;right:0;top:27px;height:2px;background:repeating-linear-gradient(90deg,var(--tanne) 0 6px,transparent 6px 12px);opacity:.35}
+.step{position:relative;padding-right:28px}
+.step-node{width:56px;height:56px;border-radius:50%;background:var(--kalk-2);border:2px solid var(--tanne);display:grid;place-items:center;font:700 22px/1 var(--display);position:relative;z-index:1}
+.step:last-child .step-node{background:var(--lime)}
+.step .when{display:block;margin:22px 0 8px;color:var(--beton-ink)}
+.step h3{margin-bottom:10px}
+.step p{color:var(--beton-ink);font-size:16px}
+.step .out{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:15px}
+.step .out b{display:block;font:500 11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tanne);margin-bottom:4px}
+
+/* cases */
+.tabs{display:inline-flex;background:var(--tanne-2);border-radius:999px;padding:5px;margin-top:28px;border:1px solid var(--line-dark)}
+.tab{background:none;border:0;color:#C9CDC4;font:600 15px var(--body);padding:12px 22px;border-radius:999px;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--lime);color:var(--tanne)}
+.case-list{display:grid;gap:16px;margin-top:40px}
+.case-list[hidden]{display:none}
+.case{display:grid;grid-template-columns:280px 1fr 300px;gap:0;background:var(--tanne-2);border:1px solid var(--line-dark);border-radius:14px;overflow:hidden}
+.case-img{background:var(--tanne-3);min-height:260px}
+.case-img img{width:100%;height:100%;object-fit:cover}
+.case-quote{padding:36px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;border-right:1px solid var(--line-dark)}
+.case-quote blockquote{font:600 23px/1.32 var(--display);letter-spacing:-.01em}
+.person{display:flex;align-items:center;gap:14px}
+.person img,.avatar{width:48px;height:48px;border-radius:50%;object-fit:cover;background:var(--tanne-3);flex:none}
+.person b{display:block;font-size:15px}
+.person span{font-size:14px;color:var(--beton)}
+.case-num{padding:36px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.case-num .big{font:700 64px/1 var(--display);letter-spacing:-.04em;color:var(--lime)}
+.case-num p{color:#C9CDC4;font-size:16px;margin-top:10px}
+.case-num .btn{align-self:flex-start;padding:13px 18px;font-size:14px}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:16px;margin-top:56px}
+.about-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:44px;display:flex;flex-direction:column;gap:22px}
+.about-card h3{font-size:44px;letter-spacing:-.03em}
+.about-card p{color:var(--beton-ink)}
+.checks{list-style:none;display:grid;gap:12px}
+.checks li{display:flex;gap:12px;align-items:flex-start;font-weight:500}
+.checks svg{flex:none;margin-top:3px}
+.about-photo{position:relative;border-radius:14px;overflow:hidden;background:var(--tanne);min-height:520px}
+.about-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.play{position:absolute;left:24px;bottom:24px;display:inline-flex;align-items:center;gap:12px;background:var(--paper);color:var(--tanne);text-decoration:none;border-radius:999px;padding:8px 18px 8px 8px;font-weight:600;font-size:15px;box-shadow:0 14px 30px -14px rgba(0,0,0,.5)}
+.play i{width:40px;height:40px;border-radius:50%;background:var(--lime);display:grid;place-items:center}
+
+/* testimonials */
+.quotes{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:56px}
+.q{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:30px;display:flex;flex-direction:column;gap:18px;grid-column:span 2}
+.q.wide{grid-column:span 3}
+.q .k{font:700 44px/1 var(--display);letter-spacing:-.03em}
+.q .k small{font-size:.45em;color:var(--beton-ink);font-weight:600;margin-left:4px}
+.q p{font-size:16px}
+.q .person{margin-top:auto;padding-top:16px;border-top:1px solid var(--line)}
+.q .person span{color:var(--beton-ink)}
+.q .q-logo{height:30px;width:auto;filter:brightness(0);opacity:.7;margin-top:auto}
+.stars{display:flex;gap:2px;color:var(--messing)}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.contact h2{color:var(--kalk)}
+.contact .checks li{color:var(--kalk)}
+.form{background:var(--kalk);color:var(--tanne);border-radius:16px;padding:40px;display:grid;gap:18px}
+.form h3{font-size:30px;letter-spacing:-.02em}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:grid;gap:7px}
+.field label,.field legend{font:500 12px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--beton-ink)}
+.field input,.field textarea{font:400 16px var(--body);color:var(--tanne);background:var(--paper);border:1px solid var(--line);border-radius:9px;padding:14px 14px;width:100%}
+.field input:focus,.field textarea:focus{outline:2px solid var(--tanne);outline-offset:0;border-color:transparent}
+fieldset.field{border:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{position:relative}
+.chips label{font:inherit;text-transform:none;letter-spacing:0;color:inherit}
+.chip input{position:absolute;inset:0;opacity:0;pointer-events:none}
+.chip span{display:inline-block;padding:10px 14px;border:1px solid var(--line);border-radius:999px;background:var(--paper);font-size:14px;font-weight:500;cursor:pointer;transition:all .15s}
+.chip input:checked + span{background:var(--tanne);color:var(--kalk);border-color:var(--tanne)}
+.chip input:focus-visible + span{outline:2px solid var(--messing);outline-offset:2px}
+.form .btn{justify-content:center}
+.form-note{font-size:13px;color:var(--beton-ink);text-align:center}
+.form-done{display:none;text-align:center;padding:40px 10px}
+.form.sent .form-body{display:none}
+.form.sent .form-done{display:block}
+
+/* faq */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px}
+.faq-side .person{margin:28px 0 14px}
+.faq-side .person img{width:72px;height:72px}
+.faq-side p{color:var(--beton-ink);margin-bottom:22px}
+details{border-top:1px solid var(--line)}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;font:600 21px/1.3 var(--display);letter-spacing:-.01em}
+summary::-webkit-details-marker{display:none}
+summary .pm{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:transform .25s,background .25s}
+details[open] summary .pm{transform:rotate(45deg);background:var(--lime);border-color:var(--tanne)}
+details .ans{padding:0 50px 26px 0;color:var(--beton-ink)}
+details .ans p + p, details .ans p + ul, details .ans ul + p{margin-top:12px}
+details .ans ul{padding-left:20px}
+
+/* footer */
+footer{background:var(--tanne);color:var(--kalk);padding:96px 0 40px}
+.foot-grid{display:grid;grid-template-columns:1.4fr .6fr 1fr;gap:48px;padding-bottom:56px;border-bottom:1px solid var(--line-dark)}
+.foot-grid h2{font-size:clamp(34px,4vw,52px);margin:0 0 18px}
+.foot-grid p{color:var(--beton)}
+.foot-col .mono{color:var(--beton);margin-bottom:14px;display:block}
+.foot-col a{display:block;text-decoration:none;color:#C9CDC4;padding:4px 0}
+.foot-col a:hover{color:var(--lime)}
+.foot-col .val{font:600 18px/1.3 var(--display);margin-bottom:18px;color:var(--kalk)}
+.foot-col .val a{display:inline;color:var(--kalk);padding:0}
+.foot-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:28px;font-size:13px;color:var(--beton)}
+
+/* mobile sticky cta */
+.sticky-cta{display:none}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.rv.on{opacity:1;transform:none}
+
+@media (max-width:1080px){
+  .hero-grid{grid-template-columns:1fr}
+  .board{min-height:560px;max-width:620px}
+  .case{grid-template-columns:220px 1fr}
+  .case-num{grid-column:1 / -1;border-top:1px solid var(--line-dark);flex-direction:row;align-items:center}
+  .case-quote{border-right:0}
+  .timeline{grid-template-columns:1fr 1fr;row-gap:48px}
+  .timeline::before{display:none}
+  .quotes{grid-template-columns:1fr 1fr}
+  .q,.q.wide{grid-column:span 1}
+}
+@media (max-width:860px){
+  section{padding:84px 0}
+  .nav{position:fixed;inset:72px 0 auto 0;background:var(--kalk);flex-direction:column;align-items:stretch;gap:0;padding:8px 24px 24px;border-bottom:1px solid var(--line);display:none}
+  .nav.open{display:flex}
+  .nav a{padding:14px 0;border-bottom:1px solid var(--line);font-size:17px}
+  .nav .btn{margin-top:16px;justify-content:center;border-bottom:0}
+  .menu-toggle{display:inline-block}
+  .problem-head,.contact-grid,.faq-grid,.about-grid,.foot-grid{grid-template-columns:1fr;gap:32px}
+  .cards3,.svc-grid{grid-template-columns:1fr}
+  .solution{flex-direction:column;align-items:flex-start;padding:30px}
+  .stats-grid{grid-template-columns:1fr}
+  .stat,.stat:first-child,.stat:last-child{padding:40px 0;border-right:0;border-bottom:1px solid var(--line-dark)}
+  .stat:last-child{border-bottom:0}
+  .stats-head{padding-top:84px;padding-bottom:16px}
+  .logos-inner{flex-direction:column;align-items:flex-start;gap:20px}
+  .marquee{width:100%}
+  .about-photo{min-height:420px}
+  .sticky-cta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;justify-content:center;box-shadow:0 18px 40px -16px rgba(14,34,25,.6);transform:translateY(120%);transition:transform .3s ease}
+  .sticky-cta.show{transform:none}
+}
+@media (max-width:600px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  .hero{padding-top:40px}
+  .board{min-height:540px}
+  .portrait{inset:0 0 70px 14%}
+  .digit{width:42px;height:56px;font-size:36px}
+  .feed{width:92%}
+  .note{grid-template-columns:30px 1fr;}
+  .note-time{display:none}
+  .case{grid-template-columns:1fr}
+  .case-img{min-height:220px;max-height:260px}
+  .case-quote,.case-num{padding:26px}
+  .case-num{flex-direction:column;align-items:flex-start}
+  .case-quote blockquote{font-size:20px}
+  .timeline,.quotes{grid-template-columns:1fr}
+  .row2{grid-template-columns:1fr}
+  .form,.about-card{padding:26px}
+  .about-card h3{font-size:36px}
+  details .ans{padding-right:0}
+  summary{font-size:18px}
+  .brand-name small{display:none}
+  .portrait-tag{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Nishan Didi – zur Startseite">
+      <span class="brand-mark">nd</span>
+      <span class="brand-name">Nishan Didi<small>Wachstumspartner</small></span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="nav">Menü</button>
+    <nav class="nav" id="nav" aria-label="Hauptnavigation">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#ergebnisse">Ergebnisse</a>
+      <a href="#ueber">Über mich</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn" href="#kontakt">Potenzialanalyse</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow" data-s="hero.eyebrow">Für KMU &amp; Handwerk in der Schweiz</p>
+      <h1 data-m="hero.title">Deine Website soll <span class="mark">Kunden bringen.</span> <span class="soft">Nicht nur hübsch aussehen.</span></h1>
+      <p class="lede" data-s="hero.lede">Ich baue Websites und Werbekampagnen, die gesehen werden – und aus Besuchern Anfragen machen. Ob Kunden oder Fachkräfte: messbar, planbar und ohne leere Agentur-Versprechen.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#kontakt"><span data-s="hero.ctaPrimary">Kostenlose Potenzialanalyse</span> <span class="arr" aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost" href="#ergebnisse" data-s="hero.ctaSecondary">Ergebnisse ansehen</a>
+      </div>
+      <div class="reassure">
+        <span><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="#C8F03C"/><path d="M4.5 8.2l2.2 2.2 4.8-4.8" fill="none" stroke="#0E2219" stroke-width="1.8"/></svg>30 Min · Videocall</span>
+        <span><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="#C8F03C"/><path d="M4.5 8.2l2.2 2.2 4.8-4.8" fill="none" stroke="#0E2219" stroke-width="1.8"/></svg>Kostenlos &amp; unverbindlich</span>
+        <span><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="#C8F03C"/><path d="M4.5 8.2l2.2 2.2 4.8-4.8" fill="none" stroke="#0E2219" stroke-width="1.8"/></svg>Direkt und ehrlich</span>
+      </div>
+    </div>
+
+    <div class="board" aria-label="Beispiel: eingehende Anfragen bei Kunden">
+      <div class="portrait">
+        <img src="https://onecdn.io/media/dd433dbd-52b0-4033-8a5f-8dffa89a0656/lg" alt="Nishan Didi" width="720" height="900" fetchpriority="high" data-img="hero.portraitUrl">
+        <div class="portrait-tag"><b>Nishan Didi</b><span>Online-Marketer &amp; Vertriebsstratege</span></div>
+      </div>
+      <div class="flap" role="img" aria-label="Rund 100 Interessenten im ersten Monat">
+        <span class="mono">Interessenten · erster Monat</span>
+        <div class="flap-digits" aria-hidden="true"><span class="digit">1</span><span class="digit">0</span><span class="digit">0</span></div>
+        <div class="src">Fitin30Minuten, Ebikon – nach Kampagnenstart</div>
+      </div>
+      <div class="feed" id="feed" aria-live="off"></div>
+    </div>
+  </div>
+
+  <div class="wrap logos">
+    <div class="logos-inner">
+      <p class="logos-label"><b>80+ B2B-Unternehmen</b>betreut – echte Namen, echte Zahlen</p>
+      <div class="marquee" aria-label="Kundenlogos">
+        <div class="marquee-track">
+          <img src="https://onecdn.io/media/143fbd51-e90a-4612-bceb-273348df1877/md" alt="Koch Maschinenbau" loading="lazy">
+          <img src="https://onecdn.io/media/29ddffb3-9333-4571-a0ec-f4212c6bd44e/md" alt="Liebig" loading="lazy">
+          <img src="https://onecdn.io/media/33a5a569-7c08-411e-af0c-d479a38e039b/md" alt="Fit4Life" loading="lazy">
+          <img src="https://onecdn.io/media/a3155051-4da0-4817-a650-07f4a41cd5c6/md" alt="Avermann" loading="lazy">
+          <img src="https://onecdn.io/media/83b830a7-759d-4ae6-b793-c82985245a3c/md" alt="IAS" loading="lazy">
+          <img src="https://onecdn.io/media/1fd66c85-c370-4eb5-b5fa-e604c3afe4e4/md" alt="Telepski Treuhand" loading="lazy">
+          <img src="https://onecdn.io/media/143fbd51-e90a-4612-bceb-273348df1877/md" alt="" aria-hidden="true" loading="lazy">
+          <img src="https://onecdn.io/media/29ddffb3-9333-4571-a0ec-f4212c6bd44e/md" alt="" aria-hidden="true" loading="lazy">
+          <img src="https://onecdn.io/media/33a5a569-7c08-411e-af0c-d479a38e039b/md" alt="" aria-hidden="true" loading="lazy">
+          <img src="https://onecdn.io/media/a3155051-4da0-4817-a650-07f4a41cd5c6/md" alt="" aria-hidden="true" loading="lazy">
+          <img src="https://onecdn.io/media/83b830a7-759d-4ae6-b793-c82985245a3c/md" alt="" aria-hidden="true" loading="lazy">
+          <img src="https://onecdn.io/media/1fd66c85-c370-4eb5-b5fa-e604c3afe4e4/md" alt="" aria-hidden="true" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="wrap">
+    <div class="problem-head rv">
+      <div>
+        <p class="eyebrow" data-s="problem.eyebrow">Kommt dir das bekannt vor?</p>
+        <h2 data-m="problem.title">Der Fehler liegt <span class="under">nicht bei dir.</span></h2>
+      </div>
+      <p data-s="problem.intro">Du investierst deine Zeit darin, der Beste in deinem Handwerk zu sein – nicht in Marketing-Tutorials. Trotzdem bringt die Website keine Anfragen, die Werbung liefert Klicks statt Kunden, und niemand kann dir sagen, warum.</p>
+    </div>
+    <div class="cards3" data-list="problem.cards">
+      <article class="card rv">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E2219" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M9 10.5h6" stroke-dasharray="2 2"/></svg></div>
+        <h3 data-f="title">Hübsch, aber stumm</h3>
+        <p data-f="text">Die Website hat ein kleines Vermögen gekostet. Anfragen? Zwei im Monat – und eine davon ist Spam.</p>
+      </article>
+      <article class="card rv">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E2219" stroke-width="1.8" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+        <h3 data-f="title">Posten ohne Ergebnisse</h3>
+        <p data-f="text">Jede Woche ein Beitrag, weil „man das halt so macht“. Likes von der Familie – Kunden: null. Das ist kein Plan, das ist Druck.</p>
+      </article>
+      <article class="card rv">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E2219" stroke-width="1.8" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></div>
+        <h3 data-f="title">Das Agentur-Karussell</h3>
+        <p data-f="text">Vertrag unterschrieben. Was jetzt läuft, wer woran arbeitet und wann Ergebnisse kommen, bleibt unklar.</p>
+      </article>
+    </div>
+    <div class="solution rv">
+      <div>
+        <h3 data-s="problem.solutionTitle">Die Lösung ist kein neues Design.</h3>
+        <p data-s="problem.solutionText">Sondern eine Website, die verkauft – und Werbung, die genau die richtigen Personen aus deiner Region zu dir bringt. Messbar, jede Woche.</p>
+      </div>
+      <a class="btn btn-primary" href="#kontakt">Kostenlose Potenzialanalyse <span class="arr" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="dark stats" id="ergebnisse">
+  <div class="wrap">
+    <div class="stats-head rv">
+      <p class="eyebrow" data-s="stats.eyebrow">Ergebnisse statt bunte Reportings</p>
+      <h2 data-m="stats.title">Gemessen wird, was bei dir ankommt.</h2>
+    </div>
+    <div class="stats-grid" id="stats-grid">
+      <div class="stat rv">
+        <span class="mono">Betreute Unternehmen</span>
+        <div class="stat-num" data-count="80">80<small>+</small></div>
+        <p>Aus Handwerk, Industrie, Bau und Dienstleistung – von der Haustechnik bis zum Maschinenbauer.</p>
+      </div>
+      <div class="stat rv">
+        <span class="mono">Zusatzumsatz · ein Kunde · 2 Monate</span>
+        <div class="stat-num"><small>CHF</small><span data-count="50">50</span><small>k+</small></div>
+        <p>Für die Fit4Life AG – plus über 50 neue Mitgliedschaften. Mit Kampagnen und Landingpages, die auf Anfragen ausgerichtet sind.</p>
+      </div>
+      <div class="stat rv">
+        <span class="mono">Bis zu den ersten Anfragen</span>
+        <div class="stat-num"><span data-count="48">48</span><small>h</small><span class="dot" aria-hidden="true"></span></div>
+        <p>So schnell kommen nach dem Kampagnenstart in der Regel die ersten Anfragen rein. Kein Warten auf ein SEO-Wunder.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="leistungen">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow" data-s="services.eyebrow">Leistungen</p>
+      <h2 data-m="services.title">Vier Hebel für <span class="mark">mehr Anfragen.</span></h2>
+      <p class="lede" data-s="services.lede">Ein Ziel: mehr Anfragen – ob von Kunden oder von Fachkräften.</p>
+    </div>
+    <div class="svc-grid" data-list="services.items">
+      <article class="svc rv">
+        <div class="svc-top">
+          <div><span class="tag" data-f="tag">Mehr Anfragen statt schöner Visitenkarte</span><h3 data-f="title">Verkaufs-Websites</h3></div>
+          <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E2219" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 13h6M7 16h4"/></svg></div>
+        </div>
+        <p data-f="text">Websites und Landingpages, aufgebaut nach Verkaufspsychologie: ein klares Angebot, starke Beweise und ein einziger nächster Schritt. So werden aus Besuchern Anfragen – nicht nur Seitenaufrufe.</p>
+        <a class="more" href="#kontakt">Potenzialanalyse buchen <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="svc rv">
+        <div class="svc-top">
+          <div><span class="tag" data-f="tag">Gesehen werden – von den Richtigen</span><h3 data-f="title">Meta- &amp; Google-Ads</h3></div>
+          <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E2219" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="#0E2219"/></svg></div>
+        </div>
+        <p data-f="text">Ich bringe deine Website genau vor die Leute in deiner Region, die jetzt kaufen oder wechseln wollen. Laufend getestet, optimiert und mit klaren Zahlen statt Bauchgefühl.</p>
+        <a class="more" href="#kontakt">Potenzialanalyse buchen <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="svc rv">
+        <div class="svc-top">
+          <div><span class="tag" data-f="tag">Fachkräfte, die sich bei dir melden</span><h3 data-f="title">Recruiting-Kampagnen</h3></div>
+          <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E2219" stroke-width="1.8" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><path d="M16 11l2 2 4-4"/></svg></div>
+        </div>
+        <p data-f="text">Bewerbung in 2 Minuten ohne Lebenslauf, automatische Vorqualifizierung und Anzeigen, die auch wechselwillige Fachkräfte erreichen – nicht nur die, die gerade aktiv suchen. Keine Personalvermittlung, keine Provision pro Kopf.</p>
+        <a class="more" href="#kontakt">Potenzialanalyse buchen <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="svc rv">
+        <div class="svc-top">
+          <div><span class="tag" data-f="tag">Das Angebot, das Kunden anzieht</span><h3 data-f="title">Strategie &amp; Positionierung</h3></div>
+          <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E2219" stroke-width="1.8" aria-hidden="true"><path d="M12 3v9h9a9 9 0 1 1-9-9z"/><path d="M15 3.5A9 9 0 0 1 20.5 9H15z"/></svg></div>
+        </div>
+        <p data-f="text">Bevor ein Franken in Werbung fliesst, schärfen wir dein Angebot: Warum du? Warum jetzt? Denn auch die beste Kampagne rettet kein austauschbares Angebot.</p>
+        <a class="more" href="#kontakt">Potenzialanalyse buchen <span aria-hidden="true">→</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="ablauf">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow" data-s="process.eyebrow">Ablauf</p>
+      <h2 data-m="process.title">So läuft's ab.</h2>
+      <p class="lede" data-s="process.lede">Kein Agentur-Marathon. Vier klare Schritte – und du weisst immer, wo wir stehen.</p>
+    </div>
+    <ol class="timeline" data-list="process.steps">
+      <li class="step rv">
+        <div class="step-node" data-f="#">1</div>
+        <span class="when mono" data-f="when">Tag 1 · 30 Min</span>
+        <h3 data-f="title">Potenzialanalyse</h3>
+        <p data-f="text">In einem kostenlosen Gespräch schauen wir, wo deine Website und dein Marketing heute Anfragen verlieren.</p>
+        <div class="out"><b>Ergebnis</b><span data-f="result">Klarheit, welcher Hebel bei dir am meisten bringt – auch wenn wir danach nicht zusammenarbeiten.</span></div>
+      </li>
+      <li class="step rv">
+        <div class="step-node" data-f="#">2</div>
+        <span class="when mono" data-f="when">Woche 1</span>
+        <h3 data-f="title">Strategie &amp; Angebot</h3>
+        <p data-f="text">Wir schärfen Zielgruppe, Botschaft und Angebot – damit dich genau die Richtigen wahrnehmen.</p>
+        <div class="out"><b>Ergebnis</b><span data-f="result">Ein klarer Plan mit Zielen, Budget und Zahlen, an denen du mich messen kannst.</span></div>
+      </li>
+      <li class="step rv">
+        <div class="step-node" data-f="#">3</div>
+        <span class="when mono" data-f="when">Woche 2–3</span>
+        <h3 data-f="title">Umsetzung</h3>
+        <p data-f="text">Website, Landingpage, Creatives und Kampagnen – alles aus einer Hand. Du lieferst nur den Input.</p>
+        <div class="out"><b>Ergebnis</b><span data-f="result">Ein System, das live ist und dich in deiner Region sichtbar macht.</span></div>
+      </li>
+      <li class="step rv">
+        <div class="step-node" data-f="#">4</div>
+        <span class="when mono" data-f="when">Ab Start + 48 h</span>
+        <h3 data-f="title">Anfragen &amp; Optimierung</h3>
+        <p data-f="text">Anfragen landen direkt in deinem Postfach. Ich optimiere laufend, bis die Zahlen stimmen.</p>
+        <div class="out"><b>Ergebnis</b><span data-f="result">Planbar mehr Kunden oder Bewerber – Woche für Woche.</span></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- CASES -->
+<section class="dark" id="cases">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow" data-s="cases.eyebrow">Fallstudien</p>
+      <h2 data-m="cases.title">Mehr Kunden. Mehr Fachkräfte. <span class="mark">In Zahlen.</span></h2>
+      <div class="tabs" role="tablist" aria-label="Fallstudien filtern">
+        <button class="tab" role="tab" id="tab-k" aria-controls="pane-k" aria-selected="true">Mehr Kunden</button>
+        <button class="tab" role="tab" id="tab-f" aria-controls="pane-f" aria-selected="false" tabindex="-1">Mehr Fachkräfte</button>
+      </div>
+    </div>
+
+    <div class="case-list" id="pane-k" role="tabpanel" aria-labelledby="tab-k">
+      <article class="case">
+        <div class="case-img"><img data-f-img="image" src="https://onecdn.io/media/c2a9f660-c5dd-4772-8959-ea772a655dfd/md" alt="Fit4Life AG Studio" loading="lazy"></div>
+        <div class="case-quote">
+          <blockquote data-f="quote">„Was Sie erreicht haben, hat mit uns zuvor noch kein Online-Marketing-Spezialist geschafft! Hut ab, das war echt Spitze!“</blockquote>
+          <div class="person"><img data-f-img="avatar" src="https://onecdn.io/media/083c47f1-9057-4c74-953e-65c760f4285b/sm" alt="" loading="lazy"><div><b data-f="name">Michael Back</b><span data-f="role">Inhaber, Fit4Life AG · Siggenthal</span></div></div>
+        </div>
+        <div class="case-num">
+          <div><div class="big" data-f="number">CHF 50k+</div><p data-f="numberText">Zusatzumsatz und über 50 neue Mitgliedschaften – in nur 2 Monaten.</p></div>
+          <a class="btn btn-primary" href="#kontakt"><span data-f="buttonLabel">Das will ich auch</span> <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </article>
+      <article class="case">
+        <div class="case-img"><img data-f-img="image" src="https://onecdn.io/media/d9215efc-40d4-419d-9822-c3a1e93ec5db/md" alt="Fitin30Minuten Studio" loading="lazy" style="object-position:50% 0"></div>
+        <div class="case-quote">
+          <blockquote data-f="quote">„Echt stark, das läuft wie am Schnürchen! Normalerweise hatten wir nur ein paar Anfragen pro Woche.“</blockquote>
+          <div class="person"><img data-f-img="avatar" src="https://onecdn.io/media/7573a631-dfb5-44e5-9561-2ca4800c8bba/sm" alt="" loading="lazy"><div><b data-f="name">David Geisshüsler</b><span data-f="role">Inhaber, Fitin30Minuten &amp; Davids Fitnesscenter · Ebikon</span></div></div>
+        </div>
+        <div class="case-num">
+          <div><div class="big" data-f="number">~100</div><p data-f="numberText">Interessenten im ersten Monat – und über CHF 11'000 Zusatzumsatz.</p></div>
+          <a class="btn btn-primary" href="#kontakt"><span data-f="buttonLabel">Das will ich auch</span> <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </article>
+    </div>
+
+    <div class="case-list" id="pane-f" role="tabpanel" aria-labelledby="tab-f" hidden>
+      <article class="case">
+        <div class="case-img"><img data-f-img="image" src="https://onecdn.io/media/784a9db0-6449-4b5a-85fd-995944879f90/md" alt="Jens Tauchert Heizung &amp; Sanitär" loading="lazy"></div>
+        <div class="case-quote">
+          <blockquote data-f="quote">„Ich war anfangs eher skeptisch, doch als die Bewerbungen wöchentlich reinkamen, sprachen die Ergebnisse für sich.“</blockquote>
+          <div class="person"><img data-f-img="avatar" src="https://onecdn.io/media/891c5bc7-46c6-4b3b-a774-dfa674041557/sm" alt="" loading="lazy"><div><b data-f="name">Jens Tauchert</b><span data-f="role">Inhaber, Jens Tauchert Heizung &amp; Sanitär · ca. 60 MA</span></div></div>
+        </div>
+        <div class="case-num">
+          <div><div class="big" data-f="number">8</div><p data-f="numberText">Anlagenmechaniker SHK eingestellt – in einer ländlichen Region direkt an der polnischen Grenze.</p></div>
+          <a class="btn btn-primary" href="#kontakt"><span data-f="buttonLabel">Fachkräfte finden</span> <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </article>
+      <article class="case">
+        <div class="case-img"><img data-f-img="image" src="https://onecdn.io/media/e37a84b6-6a38-43c1-a7b3-bbf310c34418/md" alt="millfax GmbH" loading="lazy" style="object-position:50% 0"></div>
+        <div class="case-quote">
+          <blockquote data-f="quote">„Durch die HR-Kampagne konnte ich innerhalb von 20 Tagen zehn Vorstellungsgespräche führen und drei Facharbeiter einstellen.“</blockquote>
+          <div class="person"><img data-f-img="avatar" src="https://onecdn.io/media/abba6b97-01dd-4634-876b-4b2aa58de875/sm" alt="" loading="lazy"><div><b data-f="name">Torsten Schwaar</b><span data-f="role">Inhaber, millfax GmbH · Metallverarbeitung</span></div></div>
+        </div>
+        <div class="case-num">
+          <div><div class="big" data-f="number">3</div><p data-f="numberText">Facharbeiter in 20 Tagen eingestellt – obwohl die Konkurrenz mehr Lohn zahlt.</p></div>
+          <a class="btn btn-primary" href="#kontakt"><span data-f="buttonLabel">Fachkräfte finden</span> <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="ueber">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow" data-s="about.eyebrow">Wer dahinter steckt</p>
+      <h2 data-m="about.title">Kein Agentur-Team. <span class="mark">Du arbeitest mit mir.</span></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-card rv">
+        <h3 data-s="about.greeting">Hi, ich bin Nishan.</h3>
+        <p data-s="about.text">Online-Marketer und Vertriebsstratege. Ich helfe KMU, sichtbar zu werden und daraus planbar Kunden und Fachkräfte zu gewinnen. Dabei liefere ich nicht nur Klicks, sondern ein System, das Interessenten bis zum Termin bringt.</p>
+        <ul class="checks" data-bullets="about.bullets">
+          <li><svg width="18" height="18" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="#C8F03C"/><path d="M4.5 8.2l2.2 2.2 4.8-4.8" fill="none" stroke="#0E2219" stroke-width="1.8"/></svg>80+ B2B-Unternehmen betreut</li>
+          <li><svg width="18" height="18" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="#C8F03C"/><path d="M4.5 8.2l2.2 2.2 4.8-4.8" fill="none" stroke="#0E2219" stroke-width="1.8"/></svg>Ein fester Ansprechpartner – mich, direkt via WhatsApp</li>
+          <li><svg width="18" height="18" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="#C8F03C"/><path d="M4.5 8.2l2.2 2.2 4.8-4.8" fill="none" stroke="#0E2219" stroke-width="1.8"/></svg>Strategie und Umsetzung aus einer Hand</li>
+          <li><svg width="18" height="18" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="#C8F03C"/><path d="M4.5 8.2l2.2 2.2 4.8-4.8" fill="none" stroke="#0E2219" stroke-width="1.8"/></svg>Ergebnisse statt bunte Reportings</li>
+        </ul>
+        <div><a class="btn btn-primary" href="#kontakt">Lass uns sprechen <span class="arr" aria-hidden="true">→</span></a></div>
+      </div>
+      <div class="about-photo rv">
+        <img src="https://onecdn.io/media/dd433dbd-52b0-4033-8a5f-8dffa89a0656/lg" alt="Nishan Didi" loading="lazy" data-img="about.photoUrl">
+        <a class="play" data-href="about.videoUrl" href="https://www.youtube.com/watch?v=pVXgyHgLH7s" target="_blank" rel="noopener"><i><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l15 9-15 9z" fill="#0E2219"/></svg></i>Video ansehen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="padding-top:0" id="stimmen">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow" data-s="testimonials.eyebrow">Kundenstimmen</p>
+      <h2 data-m="testimonials.title">Was Kunden sagen.</h2>
+      <p class="lede" data-s="testimonials.lede">Echte Stimmen, echte Namen – inklusive Google-Bewertungen.</p>
+    </div>
+    <div class="quotes" id="quotes">
+      <article class="q wide rv">
+        <div class="k">10<small>Bewerbungen in 3 Tagen</small></div>
+        <p>„In den ersten 3 Tagen hatten wir bereits 10 Bewerbungen – und innerhalb von zwei Monaten konnten wir zwei neue CNC-Fachkräfte einstellen.“</p>
+        <div class="person"><div><b>S. Koch</b><span>Koch Maschinenbau</span></div></div>
+      </article>
+      <article class="q wide rv">
+        <div class="k">2<small>Kandidaten, beide eingestellt</small></div>
+        <p>„Nach wenigen Wochen hatten wir zwei hochwertige Kandidaten – und haben gleich beide eingestellt.“</p>
+        <div class="person"><div><b>H. Telepski</b><span>Telepski Treuhand</span></div></div>
+      </article>
+      <article class="q rv">
+        <div class="k">100+<small>Neukunden in 3 Monaten</small></div>
+        <p>„Dank Didi Media GmbH konnten wir unseren Umsatz vervielfachen, wir verdanken Nishan sehr viel. Er ist ein Top-Experte, was Facebook Ads und Leadgenerierung angeht.“</p>
+        <div class="person"><img src="https://onecdn.io/media/b492f76b-f7dd-4a35-b3c9-7ce78df7ff1e/sm" alt="" loading="lazy"><div><b>Silvio Gallo</b><span>Massage Köniz GmbH · Google-Bewertung</span></div></div>
+      </article>
+      <article class="q rv">
+        <div class="k">5/5<small>Google</small></div>
+        <p>„Wir haben mit Nishan eine super Erfahrung gemacht! Er arbeitet sehr professionell und konnte uns viele neue Kundenanfragen generieren. Unsere Erwartungen wurden klar übertroffen!“</p>
+        <div class="person"><img src="https://onecdn.io/media/1fb44721-b833-4a68-9cee-773d7e597557/sm" alt="" loading="lazy"><div><b>Evolution-Fit</b><span>Birsfelden · Google-Bewertung</span></div></div>
+      </article>
+      <article class="q rv">
+        <div class="k">CHF 17k<small>im ersten Monat</small></div>
+        <p>„Im ersten Monat haben wir durch deine Interessenten knapp 17'000 Franken Umsatz gemacht – und danach jeden Monat im Schnitt über 10'000 CHF zusätzlich.“</p>
+        <div class="person"><img src="https://onecdn.io/media/863426f4-50b2-416f-8abc-d729b107ffd0/sm" alt="" loading="lazy"><div><b>A. Vogt</b><span>e-pulse Studio · Bern &amp; Schaffhausen</span></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="dark contact" id="kontakt">
+  <div class="wrap contact-grid">
+    <div class="rv">
+      <p class="eyebrow" data-s="contact.eyebrow">Kostenlose Potenzialanalyse</p>
+      <h2 data-m="contact.title">Finde heraus, wo deine Website <span class="mark">Geld liegen lässt.</span></h2>
+      <p class="lede" style="margin-bottom:28px" data-s="contact.text">In ca. 30 Minuten schauen wir uns deine Website, deine Werbung und dein Angebot an. Du bekommst konkrete Hebel, die du sofort umsetzen kannst. Ehrlich gesagt: Ich arbeite nur mit einer Handvoll Kunden, bei denen ich mir sicher bin, dass ich Ergebnisse liefern kann.</p>
+      <ul class="checks" data-bullets="contact.bullets">
+        <li><svg width="18" height="18" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="#C8F03C"/><path d="M4.5 8.2l2.2 2.2 4.8-4.8" fill="none" stroke="#0E2219" stroke-width="1.8"/></svg>100 % kostenlos und unverbindlich</li>
+        <li><svg width="18" height="18" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="#C8F03C"/><path d="M4.5 8.2l2.2 2.2 4.8-4.8" fill="none" stroke="#0E2219" stroke-width="1.8"/></svg>Konkrete Hebel statt Verkaufsshow</li>
+        <li><svg width="18" height="18" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="#C8F03C"/><path d="M4.5 8.2l2.2 2.2 4.8-4.8" fill="none" stroke="#0E2219" stroke-width="1.8"/></svg>Persönliche Antwort innert 24 Stunden</li>
+      </ul>
+    </div>
+
+    <form class="form rv" id="form" novalidate>
+      <div class="form-body" style="display:grid;gap:18px">
+        <h3>Potenzialanalyse anfragen</h3>
+        <div class="row2">
+          <div class="field"><label for="vn">Vorname</label><input id="vn" name="vorname" autocomplete="given-name" required></div>
+          <div class="field"><label for="nn">Nachname</label><input id="nn" name="nachname" autocomplete="family-name" required></div>
+        </div>
+        <div class="field"><label for="em">E-Mail</label><input id="em" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="tel">Telefon (optional)</label><input id="tel" name="telefon" type="tel" autocomplete="tel" placeholder="Für einen schnellen Rückruf"></div>
+        <fieldset class="field">
+          <legend>Wobei brauchst du Unterstützung?</legend>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="thema" value="Verkaufs-Website"><span>Verkaufs-Website</span></label>
+            <label class="chip"><input type="checkbox" name="thema" value="Meta- & Google-Ads"><span>Meta- &amp; Google-Ads</span></label>
+            <label class="chip"><input type="checkbox" name="thema" value="Recruiting-Kampagne"><span>Recruiting-Kampagne</span></label>
+            <label class="chip"><input type="checkbox" name="thema" value="Weiss ich noch nicht"><span>Weiss ich noch nicht</span></label>
+          </div>
+        </fieldset>
+        <div class="field"><label for="ziel">Was ist gerade dein wichtigstes Ziel?</label><textarea id="ziel" name="ziel" rows="3" placeholder="z. B. 10 Anfragen pro Monat oder 2 Monteure einstellen"></textarea></div>
+        <button class="btn btn-primary" type="submit">Potenzialanalyse anfragen <span class="arr" aria-hidden="true">→</span></button>
+        <p class="form-note" id="form-msg" role="status">Öffnet dein E-Mail-Programm mit deiner Anfrage. Lieber direkt? <a href="https://wa.me/41795226224?text=Anfrage%20f%C3%BCr%20Webseite%2FMarketing%3A">WhatsApp</a></p>
+      </div>
+      <div class="form-done" role="status">
+        <h3>Fast geschafft!</h3>
+        <p style="color:var(--beton-ink);margin:12px 0 22px">Sende die vorbereitete E-Mail ab – ich melde mich innert 24 Stunden persönlich bei dir, um einen Termin zu finden.</p>
+        <a class="btn btn-ghost" href="https://wa.me/41795226224?text=Anfrage%20f%C3%BCr%20Webseite%2FMarketing%3A">Oder per WhatsApp schreiben</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap faq-grid">
+    <div class="faq-side rv">
+      <p class="eyebrow" data-s="faq.eyebrow">FAQ</p>
+      <h2 data-m="faq.title">Noch Fragen?</h2>
+      <p class="lede" data-s="faq.lede">Die häufigsten Fragen, bevor wir zusammenarbeiten – ehrlich beantwortet.</p>
+      <div class="person"><img src="https://onecdn.io/media/dd433dbd-52b0-4033-8a5f-8dffa89a0656/sm" alt="" loading="lazy"><div><b>Deine Frage ist nicht dabei?</b><span style="color:var(--beton-ink)">Ich antworte innert 24 Stunden persönlich.</span></div></div>
+      <a class="btn btn-ghost" href="https://wa.me/41795226224?text=Anfrage%20f%C3%BCr%20Webseite%2FMarketing%3A" target="_blank" rel="noopener">Schreib mir auf WhatsApp</a>
+    </div>
+    <div class="rv" id="faq-list">
+      <details>
+        <summary>Was passiert in der kostenlosen Potenzialanalyse?<span class="pm" aria-hidden="true">+</span></summary>
+        <div class="ans"><p>Wir schauen uns gemeinsam deine Website, deine aktuelle Werbung und dein Angebot an. Du bekommst eine ehrliche Einschätzung, wo du Anfragen verlierst, und konkrete Hebel – auch wenn wir danach nicht zusammenarbeiten.</p></div>
+      </details>
+      <details>
+        <summary>Warum bringt meine Website keine Anfragen?<span class="pm" aria-hidden="true">+</span></summary>
+        <div class="ans">
+          <p>Meistens fehlt nicht das Design, sondern ein klarer Weg vom Besucher zur Anfrage. Typische Muster:</p>
+          <ul>
+            <li>Die Website sieht gut aus, generiert aber keine Anfragen.</li>
+            <li>Die Agentur liefert bunte Reports – aber niemand sagt dir, wie viele Kunden daraus wurden.</li>
+            <li>Das Gefühl, Budget zu verbrennen, ohne zu wissen, wohin es geht.</li>
+          </ul>
+          <p>Viele Betriebe leben von Empfehlungen. Das ist ein gutes Zeichen. Was fehlt, ist ein planbarer Weg, aktiv Neukunden oder Fachkräfte zu gewinnen.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Bist du eine Personalvermittlung?<span class="pm" aria-hidden="true">+</span></summary>
+        <div class="ans"><p>Nein. Ich baue dir ein System, über das sich Fachkräfte direkt bei dir bewerben. Du entscheidest selbst, wen du einstellst – ohne Vermittlungsgebühr pro Kopf.</p></div>
+      </details>
+      <details>
+        <summary>Ich habe schon eine Website. Warum etwas ändern?<span class="pm" aria-hidden="true">+</span></summary>
+        <div class="ans"><p>Eine Website, die gut aussieht, ist noch keine Website, die verkauft. Entscheidend ist, ob Besucher sofort verstehen, warum sie bei dir anfragen sollen – und ob überhaupt genug der richtigen Leute vorbeikommen. Genau da setze ich an.</p></div>
+      </details>
+      <details>
+        <summary>Wie schnell sehe ich Ergebnisse?<span class="pm" aria-hidden="true">+</span></summary>
+        <div class="ans"><p>Sobald die Kampagne läuft, kommen die ersten Anfragen in der Regel innert 24–48 Stunden. Wie viele es werden, hängt von Branche, Region und Angebot ab – das besprechen wir ehrlich im Erstgespräch.</p></div>
+      </details>
+      <details>
+        <summary>Brauche ich technisches Wissen?<span class="pm" aria-hidden="true">+</span></summary>
+        <div class="ans"><p>Nein. Du lieferst den Input zu deinem Betrieb, ich kümmere mich um Website, Anzeigen und Technik. Die Anfragen landen einfach in deinem Postfach.</p></div>
+      </details>
+      <details>
+        <summary>Für wen ist das nichts?<span class="pm" aria-hidden="true">+</span></summary>
+        <div class="ans"><p>Für alle, die auf ein Wunder ohne Einsatz hoffen oder nur eine hübsche Visitenkarte wollen. Wenn du wachsen willst und bereit bist, die Anfragen auch zu bearbeiten – dann passt es.</p></div>
+      </details>
+      <details>
+        <summary>Was unterscheidet dich von anderen Agenturen?<span class="pm" aria-hidden="true">+</span></summary>
+        <div class="ans"><p>Du hast einen festen Ansprechpartner: mich. Kein Junior, der alle drei Monate wechselt, keine Reports voller Klicks. Mich interessiert eine Zahl – wie viele Anfragen bei dir ankommen.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h2 data-m="footer.title">Mehr Kunden. Mehr Fachkräfte. <span class="mark">Mehr Wachstum.</span></h2>
+        <p data-s="footer.text">Nishan Didi – dein Wachstumspartner für KMU und Handwerk in der Schweiz. Egal, ob du gleich starten willst oder erst Ideen sammelst: Schreib mir.</p>
+      </div>
+      <div class="foot-col">
+        <span class="mono">Schnellzugriff</span>
+        <a href="#leistungen">Leistungen</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#ergebnisse">Ergebnisse</a>
+        <a href="#ueber">Über mich</a>
+        <a href="#stimmen">Kundenstimmen</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="foot-col">
+        <span class="mono">E-Mail</span>
+        <div class="val"><a id="mail-link" href="mailto:didimedia.agentur@gmail.com">didimedia.agentur@gmail.com</a></div>
+        <span class="mono">Antwortzeit</span>
+        <div class="val" data-s="footer.responseTime">Innert 24 Stunden – persönlich</div>
+        <span class="mono">Standort</span>
+        <div class="val" data-s="footer.location">Volketswil, Schweiz</div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr">2026</span> Nishan Didi · Alle Rechte vorbehalten</span>
+      <span>Diese Website steht in keiner Verbindung zu Facebook, Google oder Meta Platforms, Inc.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="btn btn-primary sticky-cta" id="sticky" href="#kontakt">Kostenlose Potenzialanalyse <span class="arr" aria-hidden="true">→</span></a>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // header + sticky CTA
+  var top = document.getElementById('top'), sticky = document.getElementById('sticky'), kontakt = document.getElementById('kontakt');
+  function onScroll(){
+    var y = window.scrollY;
+    top.classList.toggle('scrolled', y > 8);
+    var k = kontakt.getBoundingClientRect();
+    sticky.classList.toggle('show', y > 700 && (k.top > window.innerHeight || k.bottom < 0));
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  // mobile nav
+  var toggle = document.querySelector('.menu-toggle'), nav = document.getElementById('nav');
+  toggle.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open); toggle.textContent = open ? 'Schliessen' : 'Menü';
+  });
+  nav.addEventListener('click', function(e){ if(e.target.tagName === 'A'){ nav.classList.remove('open'); toggle.setAttribute('aria-expanded', false); toggle.textContent = 'Menü'; } });
+
+  // hide images that fail to load (keeps the layout clean)
+  document.querySelectorAll('img').forEach(function(img){
+    img.addEventListener('error', function(){ img.style.visibility = 'hidden'; });
+  });
+
+  // split-flap counter -> 100
+  var digits = document.querySelectorAll('.flap .digit');
+  function setFlap(n){
+    var s = String(n).padStart(3,'0');
+    digits.forEach(function(d,i){ if(d.textContent !== s[i]){ d.textContent = s[i]; d.classList.remove('flip'); void d.offsetWidth; d.classList.add('flip'); } });
+  }
+  if(reduce){ setFlap(100); } else {
+    var n = 0; var t = setInterval(function(){ n += Math.max(1, Math.round((100-n)/9)); if(n >= 100){ n = 100; clearInterval(t); } setFlap(n); }, 70);
+  }
+
+  // inquiry feed (examples drawn from the case studies)
+  var items = [
+    {t:'Neue Anfrage · Probetraining', s:'Fitness · Ebikon', ico:'in'},
+    {t:'Neue Bewerbung · CNC-Fachkraft', s:'Maschinenbau', ico:'job'},
+    {t:'Neue Mitgliedschaft', s:'Fit4Life AG · Siggenthal', ico:'in'},
+    {t:'Neue Bewerbung · Anlagenmechaniker SHK', s:'Heizung & Sanitär', ico:'job'},
+    {t:'Neue Anfrage · Termin', s:'Massage · Köniz', ico:'in'},
+    {t:'Neue Bewerbung · Facharbeiter', s:'Metallverarbeitung', ico:'job'}
+  ];
+  var icons = {
+    'in':'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E2219" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
+    'job':'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E2219" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>'
+  };
+  var times = ['gerade eben','vor 6 Min','vor 19 Min','vor 41 Min'];
+  var feed = document.getElementById('feed'), idx = 0;
+  function render(){
+    var html = '';
+    for(var i = 0; i < 4; i++){
+      var it = items[(idx + i) % items.length];
+      html += '<div class="note' + (i === 0 ? ' is-new' : '') + '" style="animation-delay:' + (i*90) + 'ms"><div class="note-ico">' + icons[it.ico] + '</div><div><div class="note-t">' + it.t + '</div><div class="note-s">' + it.s + '</div></div><div class="note-time">' + times[i] + '</div></div>';
+    }
+    feed.innerHTML = html;
+  }
+  render();
+  if(!reduce){ setInterval(function(){ idx = (idx - 1 + items.length) % items.length; render(); }, 3800); }
+
+  // count-up for stats
+  function countUp(el){
+    var to = +el.dataset.count, small = el.querySelector('small'), start = null;
+    function frame(ts){
+      if(!start) start = ts; var p = Math.min(1, (ts - start) / 1200), v = Math.round(to * (1 - Math.pow(1 - p, 3)));
+      if(small){ el.firstChild.nodeValue = v; } else { el.textContent = v; }
+      if(p < 1) requestAnimationFrame(frame);
+    }
+    if(reduce){ if(small){ el.firstChild.nodeValue = to; } else { el.textContent = to; } } else requestAnimationFrame(frame);
+  }
+
+  // reveal on scroll
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      e.target.classList.add('on');
+      e.target.querySelectorAll('[data-count]').forEach(countUp);
+      if(e.target.dataset.count) countUp(e.target);
+      io.unobserve(e.target);
+    });
+  }, {threshold:.15, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+  // used by cms.js for content rendered from Sanity
+  window.__reveal = function(root){ root.querySelectorAll('.rv').forEach(function(el){ io.observe(el); }); };
+
+  // tabs
+  var tabs = document.querySelectorAll('.tab');
+  function select(tab){
+    tabs.forEach(function(t){
+      var on = t === tab; t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+  }
+  tabs.forEach(function(t, i){
+    t.addEventListener('click', function(){ select(t); });
+    t.addEventListener('keydown', function(e){
+      if(e.key === 'ArrowRight' || e.key === 'ArrowLeft'){ var n = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]; select(n); n.focus(); }
+    });
+  });
+
+  // form -> prepared e-mail
+  var form = document.getElementById('form'), msg = document.getElementById('form-msg');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var f = form.elements, missing = [];
+    if(!f.vorname.value.trim()) missing.push('Vorname');
+    if(!f.nachname.value.trim()) missing.push('Nachname');
+    if(!/^\S+@\S+\.\S+$/.test(f.email.value.trim())) missing.push('E-Mail');
+    if(missing.length){ msg.textContent = 'Bitte ergänze: ' + missing.join(', ') + '.'; msg.style.color = '#9B3B1E'; return; }
+    var themen = Array.prototype.filter.call(form.querySelectorAll('input[name=thema]'), function(c){ return c.checked; }).map(function(c){ return c.value; });
+    var body = 'Name: ' + f.vorname.value + ' ' + f.nachname.value + '\nE-Mail: ' + f.email.value + '\nTelefon: ' + (f.telefon.value || '–') + '\nUnterstützung bei: ' + (themen.join(', ') || '–') + '\nWichtigstes Ziel: ' + (f.ziel.value || '–');
+    window.location.href = 'mailto:' + (window.__contactEmail || 'didimedia.agentur@gmail.com') + '?subject=' + encodeURIComponent('Anfrage Potenzialanalyse – ' + f.vorname.value + ' ' + f.nachname.value) + '&body=' + encodeURIComponent(body);
+    form.classList.add('sent');
+  });
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
+<script src="cms.js" defer></script>
+</body>
+</html>
